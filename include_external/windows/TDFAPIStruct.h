@@ -1,4 +1,4 @@
-#ifndef __TDF_API_STRUCT_H__ 
+ï»¿#ifndef __TDF_API_STRUCT_H__ 
 #define __TDF_API_STRUCT_H__
 #pragma  pack(push)
 #pragma pack(1)
@@ -16,99 +16,99 @@ typedef void* THANDLE;
 #endif
 #define MAXSERVER 4
 
-/******************************************************************* ÏûÏ¢Í· *********************************************************************/
+/******************************************************************* æ¶ˆæ¯å¤´ *********************************************************************/
 struct TDF_APP_HEAD
 {
-	int	nHeadSize;         //±¾¼ÇÂ¼½á¹¹´óÐ¡
-	int	nItemCount;	       //¼ÇÂ¼ÌõÊý
-	int	nItemSize;         //¼ÇÂ¼´óÐ¡
+	int	nHeadSize;         //æœ¬è®°å½•ç»“æž„å¤§å°
+	int	nItemCount;	       //è®°å½•æ¡æ•°
+	int	nItemSize;         //è®°å½•å¤§å°
 };
 struct TDF_MSG
 {
-	unsigned short  	    sFlags;		        //16Î» ±êÊ¶·û.
-	int  	                nDataType;	        //32Î» Êý¾ÝÀàÐÍ ¼ûenum TDF_MSG_ID
-	int			            nDataLen;	        //32Î» Êý¾Ý³¤¶È£¨²»°üÀ¨TDF_APP_HEADµÄ³¤¶È£©
-	int			            nServerTime;		//32Î»·þÎñÆ÷Ê±¼ä´Á£¨¾«È·µ½ºÁÃëHHMMSSmmm£©£¬¶ÔÓÚÔ­ÉúÑ¹Ëõ£¬¾ÍÊÇ±¾µØÊ±¼ä
-	int     		        nOrder;		        //32Î» Á÷Ë®ºÅ
-	int                     nConnectId;         //Á¬½ÓID£¬ÔÚTDF_OpenÊ±£¬ÅäÖÃÀïÃæÉè¶¨µÄÖµ
-	TDF_APP_HEAD*           pAppHead;	        //Ó¦ÓÃÍ·
-	void*                   pData;              //Êý¾ÝÖ¸Õë
+	unsigned short  	    sFlags;		        //16ä½ æ ‡è¯†ç¬¦.
+	int  	                nDataType;	        //32ä½ æ•°æ®ç±»åž‹ è§enum TDF_MSG_ID
+	int			            nDataLen;	        //32ä½ æ•°æ®é•¿åº¦ï¼ˆä¸åŒ…æ‹¬TDF_APP_HEADçš„é•¿åº¦ï¼‰
+	int			            nServerTime;		//32ä½æœåŠ¡å™¨æ—¶é—´æˆ³ï¼ˆç²¾ç¡®åˆ°æ¯«ç§’HHMMSSmmmï¼‰ï¼Œå¯¹äºŽåŽŸç”ŸåŽ‹ç¼©ï¼Œå°±æ˜¯æœ¬åœ°æ—¶é—´
+	int     		        nOrder;		        //32ä½ æµæ°´å·
+	int                     nConnectId;         //è¿žæŽ¥IDï¼Œåœ¨TDF_Openæ—¶ï¼Œé…ç½®é‡Œé¢è®¾å®šçš„å€¼
+	TDF_APP_HEAD*           pAppHead;	        //åº”ç”¨å¤´
+	void*                   pData;              //æ•°æ®æŒ‡é’ˆ
 };
 struct TDF_REFDATA_MSG
 {
 	int                     nReqID;
-	int                     errorCode;          //==0±íÊ¾³É¹¦£¬-1¶ÁÈ¡ETFÎÄ¼þÊ§°Ü£¬-2´ò¿ªETFÎÄ¼þÊ§°Ü
-	int  	                nDataType;	        //32Î» Êý¾ÝÀàÐÍ ¼ûenum TDF_MSG_ID
-	int			            nDataLen;	        //32Î» Êý¾Ý³¤¶È£¨²»°üÀ¨TDF_APP_HEADµÄ³¤¶È£©
-	void*                   pData;              //Êý¾ÝÖ¸Õë£¬TDF_ETF_LIST_HEAD
+	int                     errorCode;          //==0è¡¨ç¤ºæˆåŠŸï¼Œ-1è¯»å–ETFæ–‡ä»¶å¤±è´¥ï¼Œ-2æ‰“å¼€ETFæ–‡ä»¶å¤±è´¥
+	int  	                nDataType;	        //32ä½ æ•°æ®ç±»åž‹ è§enum TDF_MSG_ID
+	int			            nDataLen;	        //32ä½ æ•°æ®é•¿åº¦ï¼ˆä¸åŒ…æ‹¬TDF_APP_HEADçš„é•¿åº¦ï¼‰
+	void*                   pData;              //æ•°æ®æŒ‡é’ˆï¼ŒTDF_ETF_LIST_HEAD
 };
 struct TDF_ETF_LIST_HEAD
 {
-	int   nFileLength;                         //ÎÄ¼þ³¤¶È
-	char  szFileName[64];                      //ÎÄ¼þÃû(20161227-SZ159949.ETF)
-	void* pData;                               //ÎÄ¼þÄÚÈÝ
+	int   nFileLength;                         //æ–‡ä»¶é•¿åº¦
+	char  szFileName[64];                      //æ–‡ä»¶å(20161227-SZ159949.ETF)
+	void* pData;                               //æ–‡ä»¶å†…å®¹
 };
-/*******************************************************************  »Øµ÷º¯Êý *********************************************************************/
-//Êý¾Ý»Øµ÷£¬ÓÃÓÚÍ¨ÖªÓÃ»§ÊÕµ½ÁËÐÐÇé¡¢Öð±Ê³É½»£¬Öð±ÊÎ¯ÍÐ£¬Î¯ÍÐ¶ÓÁÐµÈ,pMsgHead->pAppHead->ItemCount×Ö¶Î¿ÉÒÔ»ñÖªµÃµ½ÁË¶àÉÙÌõ¼ÇÂ¼£¬pMsgHead->pAppHead->pDataÖ¸ÏòµÚÒ»ÌõÊý¾Ý¼ÇÂ¼
+/*******************************************************************  å›žè°ƒå‡½æ•° *********************************************************************/
+//æ•°æ®å›žè°ƒï¼Œç”¨äºŽé€šçŸ¥ç”¨æˆ·æ”¶åˆ°äº†è¡Œæƒ…ã€é€ç¬”æˆäº¤ï¼Œé€ç¬”å§”æ‰˜ï¼Œå§”æ‰˜é˜Ÿåˆ—ç­‰,pMsgHead->pAppHead->ItemCountå­—æ®µå¯ä»¥èŽ·çŸ¥å¾—åˆ°äº†å¤šå°‘æ¡è®°å½•ï¼ŒpMsgHead->pAppHead->pDataæŒ‡å‘ç¬¬ä¸€æ¡æ•°æ®è®°å½•
 typedef void (*TDF_DataMsgHandler)  (THANDLE hTdf, TDF_MSG* pMsgHead);    
-//ÏµÍ³ÏûÏ¢»Øµ÷£¬ÓÃÓÚÍ¨ÖªÓÃ»§ÊÕµ½ÁËÍøÂç¶Ï¿ªÊÂ¼þ¡¢Á¬½Ó£¨ÖØÁ¬£©½á¹û¡¢´úÂë±í½á¹ûµÈ¡£µ±»ñÈ¡ÏµÍ³ÏûÏ¢Ê±£¬pMsgHead->pAppHeadÖ¸ÕëÎª¿Õ, pMsgHead->pDataÖ¸ÏòÏàÓ¦µÄ½á¹¹Ìå
+//ç³»ç»Ÿæ¶ˆæ¯å›žè°ƒï¼Œç”¨äºŽé€šçŸ¥ç”¨æˆ·æ”¶åˆ°äº†ç½‘ç»œæ–­å¼€äº‹ä»¶ã€è¿žæŽ¥ï¼ˆé‡è¿žï¼‰ç»“æžœã€ä»£ç è¡¨ç»“æžœç­‰ã€‚å½“èŽ·å–ç³»ç»Ÿæ¶ˆæ¯æ—¶ï¼ŒpMsgHead->pAppHeadæŒ‡é’ˆä¸ºç©º, pMsgHead->pDataæŒ‡å‘ç›¸åº”çš„ç»“æž„ä½“
 typedef void (*TDF_SystemMsgHandler)(THANDLE hTdf, TDF_MSG* pMsgHead);  
-//ÏµÍ³ÏûÏ¢»Øµ÷£¬ÓÃÓÚÍ¨ÖªÓÃ»§ÊÕµ½ÁË²Î¿¼Êý¾Ý
+//ç³»ç»Ÿæ¶ˆæ¯å›žè°ƒï¼Œç”¨äºŽé€šçŸ¥ç”¨æˆ·æ”¶åˆ°äº†å‚è€ƒæ•°æ®
 typedef void (*TDF_RefDataMsgHandler)(THANDLE hTdf, TDF_REFDATA_MSG* pMsgHead);  
-/******************************************************************* ÏûÏ¢ÀàÐÍ¶¨Òå *********************************************************************/
-//ÏûÏ¢ÀàÐÍ¶ÔÓ¦µÄ½á¹¹Ìå¼ûºóÃæ
+/******************************************************************* æ¶ˆæ¯ç±»åž‹å®šä¹‰ *********************************************************************/
+//æ¶ˆæ¯ç±»åž‹å¯¹åº”çš„ç»“æž„ä½“è§åŽé¢
 enum TDF_MSG_ID
 {
     MSG_INVALID = -100,
-    //ÏµÍ³ÏûÏ¢
-    MSG_SYS_DISCONNECT_NETWORK,     //ÍøÂç¶Ï¿ªÊÂ¼þ, ÏàÓ¦µÄ½á¹¹ÌåÎªNULL
-    MSG_SYS_CONNECT_RESULT,         //Ö÷¶¯·¢ÆðÁ¬½ÓµÄ½á¹û
-    MSG_SYS_LOGIN_RESULT,           //µÇÂ½Ó¦´ð
-    MSG_SYS_CODETABLE_RESULT,       //´úÂë±í½á¹û£¬ÊÕµ½´ËÏûÏ¢ºó¿É»ñÈ¡¶ÔÓ¦´úÂë±í,´ËÏûÏ¢±íÊ¾ËùÓÐÊÚÈ¨ÊÐ³¡´úÂë±í¿ÉÈ¡
-    MSG_SYS_QUOTATIONDATE_CHANGE,   //ÐÐÇéÈÕÆÚ±ä¸üÍ¨Öª£¨ÒÑÈ¡Ïû£©
-    MSG_SYS_MARKET_CLOSE,           //±ÕÊÐ£¨ÒÑÈ¡Ïû£©
-    MSG_SYS_HEART_BEAT,             //·þÎñÆ÷ÐÄÌøÏûÏ¢, ÏàÓ¦µÄ½á¹¹ÌåÎªNULL
-    //Êý¾ÝÏûÏ¢
-    MSG_DATA_INDEX,                 //Ö¸ÊýÊý¾Ý
-    MSG_DATA_MARKET,                //ÐÐÇéÊý¾Ý
-    MSG_DATA_FUTURE,                //ÆÚ»õÐÐÇé
-    MSG_DATA_TRANSACTION,           //Öð±Ê³É½»
-    MSG_DATA_ORDERQUEUE,            //Î¯ÍÐ¶ÓÁÐ
-    MSG_DATA_ORDER,                 //Öð±ÊÎ¯ÍÐ
-	MSG_DATA_BBQTRANSACTION,        //BBQÏÖÈ¯³É½»Êý¾Ý
-	MSG_DATA_BBQBID,                //BBQÏÖÈ¯±¨¼ÛÊý¾Ý
-	MSG_DATA_NON_MD,				//·ÇÐÐÇéÏûÏ¢
-	MSG_DATA_OTC_OPTION,			//³¡ÍâÆÚÈ¨
-	MSG_DATA_BROKERQUEUE,           //¾­¼ÍÉÌ¶ÓÁÐ(¸Û¹É)
-	MSG_DATA_NB_TRANSACTION,        //ÐÂÕ®È¯Öð±Ê³É½»
-	MSG_DATA_NB_ORDER,              //ÐÂÕ®È¯Öð±ÊÎ¯ÍÐ
-	MSG_DATA_BBQSNAP,				//BBQSnap BBQÕ®È¯¿ìÕÕÊý¾Ý
-	MSG_DATA_BBQSTEP,				//BBQSTEP BBQÕ®È¯Öð±Ê³É½»
+    //ç³»ç»Ÿæ¶ˆæ¯
+    MSG_SYS_DISCONNECT_NETWORK,     //ç½‘ç»œæ–­å¼€äº‹ä»¶, ç›¸åº”çš„ç»“æž„ä½“ä¸ºNULL
+    MSG_SYS_CONNECT_RESULT,         //ä¸»åŠ¨å‘èµ·è¿žæŽ¥çš„ç»“æžœ
+    MSG_SYS_LOGIN_RESULT,           //ç™»é™†åº”ç­”
+    MSG_SYS_CODETABLE_RESULT,       //ä»£ç è¡¨ç»“æžœï¼Œæ”¶åˆ°æ­¤æ¶ˆæ¯åŽå¯èŽ·å–å¯¹åº”ä»£ç è¡¨,æ­¤æ¶ˆæ¯è¡¨ç¤ºæ‰€æœ‰æŽˆæƒå¸‚åœºä»£ç è¡¨å¯å–
+    MSG_SYS_QUOTATIONDATE_CHANGE,   //è¡Œæƒ…æ—¥æœŸå˜æ›´é€šçŸ¥ï¼ˆå·²å–æ¶ˆï¼‰
+    MSG_SYS_MARKET_CLOSE,           //é—­å¸‚ï¼ˆå·²å–æ¶ˆï¼‰
+    MSG_SYS_HEART_BEAT,             //æœåŠ¡å™¨å¿ƒè·³æ¶ˆæ¯, ç›¸åº”çš„ç»“æž„ä½“ä¸ºNULL
+    //æ•°æ®æ¶ˆæ¯
+    MSG_DATA_INDEX,                 //æŒ‡æ•°æ•°æ®
+    MSG_DATA_MARKET,                //è¡Œæƒ…æ•°æ®
+    MSG_DATA_FUTURE,                //æœŸè´§è¡Œæƒ…
+    MSG_DATA_TRANSACTION,           //é€ç¬”æˆäº¤
+    MSG_DATA_ORDERQUEUE,            //å§”æ‰˜é˜Ÿåˆ—
+    MSG_DATA_ORDER,                 //é€ç¬”å§”æ‰˜
+	MSG_DATA_BBQTRANSACTION,        //BBQçŽ°åˆ¸æˆäº¤æ•°æ®
+	MSG_DATA_BBQBID,                //BBQçŽ°åˆ¸æŠ¥ä»·æ•°æ®
+	MSG_DATA_NON_MD,				//éžè¡Œæƒ…æ¶ˆæ¯
+	MSG_DATA_OTC_OPTION,			//åœºå¤–æœŸæƒ
+	MSG_DATA_BROKERQUEUE,           //ç»çºªå•†é˜Ÿåˆ—(æ¸¯è‚¡)
+	MSG_DATA_NB_TRANSACTION,        //æ–°å€ºåˆ¸é€ç¬”æˆäº¤
+	MSG_DATA_NB_ORDER,              //æ–°å€ºåˆ¸é€ç¬”å§”æ‰˜
+	MSG_DATA_BBQSNAP,				//BBQSnap BBQå€ºåˆ¸å¿«ç…§æ•°æ®
+	MSG_DATA_BBQSTEP,				//BBQSTEP BBQå€ºåˆ¸é€ç¬”æˆäº¤
 
-	//²Î¿¼Êý¾ÝÏûÏ¢
-	MSG_REF_ETFL_LIST  = 1,			//ÊÕµ½²Î¿¼Êý¾Ý(ÈçETFÎÄ¼þ)
+	//å‚è€ƒæ•°æ®æ¶ˆæ¯
+	MSG_REF_ETFL_LIST  = 1,			//æ”¶åˆ°å‚è€ƒæ•°æ®(å¦‚ETFæ–‡ä»¶)
 
-	MSG_SYS_PACK_OVER   = -10,      //µ±Ç°ÍøÂç°ü½âÎöÍê±Ï
-	//ÊÐ³¡ÊÂ¼þÏûÏ¢
-	MSG_SYS_MARKET_EVENT = -9,		//ÊÐ³¡ÊÂ¼þÍ¨ÖªÏûÏ¢(ÈçÊÐ³¡ÇåÅÌ£¬×ªÊýµÈ),ÊÕµ½´ËÊÂ¼þµÄÇåÅÌ»òÕß¿ìÕÕºó¿É»ñÈ¡¿ìÕÕºÍÆÚÈ¨ÐÅÏ¢
+	MSG_SYS_PACK_OVER   = -10,      //å½“å‰ç½‘ç»œåŒ…è§£æžå®Œæ¯•
+	//å¸‚åœºäº‹ä»¶æ¶ˆæ¯
+	MSG_SYS_MARKET_EVENT = -9,		//å¸‚åœºäº‹ä»¶é€šçŸ¥æ¶ˆæ¯(å¦‚å¸‚åœºæ¸…ç›˜ï¼Œè½¬æ•°ç­‰),æ”¶åˆ°æ­¤äº‹ä»¶çš„æ¸…ç›˜æˆ–è€…å¿«ç…§åŽå¯èŽ·å–å¿«ç…§å’ŒæœŸæƒä¿¡æ¯
 
-	//µ¥¸öÊÐ³¡´úÂë±íÍ¨Öª.ÓÉÓÚÄ³Ð©½ÏÐ¡ÊÐ³¡Êý¾Ý»Øµ÷Ê±£¬Í¬Ê±ÇëÇóµÄÆäËûÊÐ³¡²Å´¦ÀíÍê´úÂë±í£¬ÐÐÇéÊý¾Ý½ÏMSG_SYS_CODETABLE_RESULTÏÈµ½£¬
-	//Ôö¼Ó¸ÃÏûÏ¢£¬Í¨ÖªÃ¿Ò»ÊÐ³¡´úÂë±í´¦Àí½á¹û£¬¿Í»§¿É¾Ý´ËÑ¡ÔñºÎÊ±ÇëÇó´úÂë±í
-	MSG_SYS_SINGLE_CODETABLE_RESULT,//µ¥¸öÊÐ³¡´úÂë±í½á¹û£¬ÊÕµ½´ËÏûÏ¢ºó¿É»ñÈ¡¶ÔÓ¦µÄµ¥¸öÊÐ³¡´úÂë±í
+	//å•ä¸ªå¸‚åœºä»£ç è¡¨é€šçŸ¥.ç”±äºŽæŸäº›è¾ƒå°å¸‚åœºæ•°æ®å›žè°ƒæ—¶ï¼ŒåŒæ—¶è¯·æ±‚çš„å…¶ä»–å¸‚åœºæ‰å¤„ç†å®Œä»£ç è¡¨ï¼Œè¡Œæƒ…æ•°æ®è¾ƒMSG_SYS_CODETABLE_RESULTå…ˆåˆ°ï¼Œ
+	//å¢žåŠ è¯¥æ¶ˆæ¯ï¼Œé€šçŸ¥æ¯ä¸€å¸‚åœºä»£ç è¡¨å¤„ç†ç»“æžœï¼Œå®¢æˆ·å¯æ®æ­¤é€‰æ‹©ä½•æ—¶è¯·æ±‚ä»£ç è¡¨
+	MSG_SYS_SINGLE_CODETABLE_RESULT,//å•ä¸ªå¸‚åœºä»£ç è¡¨ç»“æžœï¼Œæ”¶åˆ°æ­¤æ¶ˆæ¯åŽå¯èŽ·å–å¯¹åº”çš„å•ä¸ªå¸‚åœºä»£ç è¡¨
 
-	MSG_SYS_QUOTEUNIT_CHANGE,		//¼Û²î±ä»¯
-	MSG_SYS_FAIL_REPLAY,			//ÊÐ³¡»Ø·ÅÊ§°ÜÍ¨Öª
-	MSG_SYS_ADDCODE,				//ÐÂÔö´úÂë£¬ÔÚ´ËÇ°´úÂë±íµÄ»ù´¡ÉÏ£¬ÓÐÐÂ´úÂë
+	MSG_SYS_QUOTEUNIT_CHANGE,		//ä»·å·®å˜åŒ–
+	MSG_SYS_FAIL_REPLAY,			//å¸‚åœºå›žæ”¾å¤±è´¥é€šçŸ¥
+	MSG_SYS_ADDCODE,				//æ–°å¢žä»£ç ï¼Œåœ¨æ­¤å‰ä»£ç è¡¨çš„åŸºç¡€ä¸Šï¼Œæœ‰æ–°ä»£ç 
 };
 
-/******************************************************************* ÏµÍ³ÏûÏ¢ *********************************************************************/
+/******************************************************************* ç³»ç»Ÿæ¶ˆæ¯ *********************************************************************/
 //MSG_SYS_PACK_OVER
 struct TDF_PACK_OVER
 {
 	int nDataNumber;
 	int nConID;
 };
-//Êý¾ÝÀàÐÍMSG_SYS_CONNECT_RESULT
+//æ•°æ®ç±»åž‹MSG_SYS_CONNECT_RESULT
 struct TDF_CONNECT_RESULT
 {
     char szIp[32];
@@ -116,544 +116,544 @@ struct TDF_CONNECT_RESULT
     char szUser[64];
     char szPwd[64];
 
-    unsigned int nConnResult; //Îª0Ôò±íÊ¾Á¬½ÓÊ§°Ü£¬·Ç0Ôò±íÊ¾Á¬½Ó³É¹¦
-    int nConnectionID;        //Á¬½ÓID
+    unsigned int nConnResult; //ä¸º0åˆ™è¡¨ç¤ºè¿žæŽ¥å¤±è´¥ï¼Œéž0åˆ™è¡¨ç¤ºè¿žæŽ¥æˆåŠŸ
+    int nConnectionID;        //è¿žæŽ¥ID
 };
-//Êý¾ÝÀàÐÍMSG_SYS_LOGIN_RESULT
+//æ•°æ®ç±»åž‹MSG_SYS_LOGIN_RESULT
 struct TDF_LOGIN_RESULT
 {
-    unsigned int nLoginResult;//Îª0Ôò±íÊ¾µÇÂ½ÑéÖ¤Ê§°Ü£¬·Ç0Ôò±íÊ¾ÑéÖ¤³É¹¦
+    unsigned int nLoginResult;//ä¸º0åˆ™è¡¨ç¤ºç™»é™†éªŒè¯å¤±è´¥ï¼Œéž0åˆ™è¡¨ç¤ºéªŒè¯æˆåŠŸ
 
-    char szInfo[256];       //µÇÂ½½á¹ûÎÄ±¾
-    int nMarkets;           //ÊÐ³¡¸öÊý
-    char szMarket[256][8];  //ÊÐ³¡´úÂë SZ-2-0, SH-2-0, SHF-1-0
-    int nDynDate[256];      //¶¯Ì¬Êý¾ÝÈÕÆÚ
+    char szInfo[256];       //ç™»é™†ç»“æžœæ–‡æœ¬
+    int nMarkets;           //å¸‚åœºä¸ªæ•°
+    char szMarket[256][8];  //å¸‚åœºä»£ç  SZ-2-0, SH-2-0, SHF-1-0
+    int nDynDate[256];      //åŠ¨æ€æ•°æ®æ—¥æœŸ
 };
-//Êý¾ÝÀàÐÍMSG_SYS_CODETABLE_RESULT
+//æ•°æ®ç±»åž‹MSG_SYS_CODETABLE_RESULT
 struct TDF_CODE_RESULT
 {
-    char szInfo[128];       //´úÂë±í½á¹ûÎÄ±¾
-    int nMarkets;           //ÊÐ³¡¸öÊý
-    char szMarket[256][8];  //ÊÐ³¡´úÂë
-    int nCodeCount[256];    //´úÂë±íÏîÊý
-    int nCodeDate[256];     //´úÂë±íÈÕÆÚ
+    char szInfo[128];       //ä»£ç è¡¨ç»“æžœæ–‡æœ¬
+    int nMarkets;           //å¸‚åœºä¸ªæ•°
+    char szMarket[256][8];  //å¸‚åœºä»£ç 
+    int nCodeCount[256];    //ä»£ç è¡¨é¡¹æ•°
+    int nCodeDate[256];     //ä»£ç è¡¨æ—¥æœŸ
 };
-//Êý¾ÝÀàÐÍMSG_SYS_SINGLE_CODETABLE_RESULT
+//æ•°æ®ç±»åž‹MSG_SYS_SINGLE_CODETABLE_RESULT
 struct TDF_SINGLE_CODE_RESULT
 {
-	char szMarket[8];  //ÊÐ³¡´úÂë
-	int nCodeCount;    //´úÂë±íÏîÊý
-	int nCodeDate;     //´úÂë±íÈÕÆÚ
+	char szMarket[8];  //å¸‚åœºä»£ç 
+	int nCodeCount;    //ä»£ç è¡¨é¡¹æ•°
+	int nCodeDate;     //ä»£ç è¡¨æ—¥æœŸ
 };
-//Êý¾ÝÀàÐÍMSG_SYS_QUOTATIONDATE_CHANGE
+//æ•°æ®ç±»åž‹MSG_SYS_QUOTATIONDATE_CHANGE
 struct TDF_QUOTATIONDATE_CHANGE
 {
-    char szMarket[8];	    //ÊÐ³¡´úÂë
-    int nOldDate;	        //Ô­ÐÐÇéÈÕÆÚ
-    int nNewDate;	        //ÐÂÐÐÇéÈÕÆÚ
+    char szMarket[8];	    //å¸‚åœºä»£ç 
+    int nOldDate;	        //åŽŸè¡Œæƒ…æ—¥æœŸ
+    int nNewDate;	        //æ–°è¡Œæƒ…æ—¥æœŸ
 };
-//Êý¾ÝÀàÐÍMSG_SYS_MARKET_CLOSE
+//æ•°æ®ç±»åž‹MSG_SYS_MARKET_CLOSE
 struct TDF_MARKET_CLOSE
 {
-    char    szMarket[8];        //½»Ò×ËùÃû³Æ
-    int		nTime;				//Ê±¼ä(HHMMSSmmm)
-    char	chInfo[64];			//±ÕÊÐÐÅÏ¢
+    char    szMarket[8];        //äº¤æ˜“æ‰€åç§°
+    int		nTime;				//æ—¶é—´(HHMMSSmmm)
+    char	chInfo[64];			//é—­å¸‚ä¿¡æ¯
 };
 
 
 enum MARKET_EVENT_NUM
 {
-	ID_BREAKPOINT_RECV = -1,				//¶Ïµã·½Ê½½ÓÊÜÊý¾Ý
-	ID_SNAP_SHOT,							//¿ìÕÕ
-	ID_MARKET_OPEN,							//¿ªÅÌ
-	ID_MARKET_CLEAR,						//ÇåÅÌ
-	ID_MARKET_CLOSE,						//±ÕÊÐ
-	ID_MARKET_TRANS,						//×ªÊý
-	ID_MARKET_SAVE,							//ÂäÅÌ
-	ID_CLEAR_CODES,							//²¿·Ö´úÂëÇåÅÌ  
-	ID_SINGLE_CODE_CLEAR,					//µ¥¸ö´úÂëÇåÅÌ
-	ID_MARKET_HEART_BEAT,					//ÊÐ³¡ÐÄÌø(Ò»·ÖÖÓÒ»´Î)
-	ID_CODE_HEART_BEAT,						//´úÂëÐÄÌø(ÎÞÊý¾ÝÒ»·ÖÖÓÒ»´Î)
-	ID_TRANS_CODES,							//²¿·Ö´úÂë×ªÊý
+	ID_BREAKPOINT_RECV = -1,				//æ–­ç‚¹æ–¹å¼æŽ¥å—æ•°æ®
+	ID_SNAP_SHOT,							//å¿«ç…§
+	ID_MARKET_OPEN,							//å¼€ç›˜
+	ID_MARKET_CLEAR,						//æ¸…ç›˜
+	ID_MARKET_CLOSE,						//é—­å¸‚
+	ID_MARKET_TRANS,						//è½¬æ•°
+	ID_MARKET_SAVE,							//è½ç›˜
+	ID_CLEAR_CODES,							//éƒ¨åˆ†ä»£ç æ¸…ç›˜  
+	ID_SINGLE_CODE_CLEAR,					//å•ä¸ªä»£ç æ¸…ç›˜
+	ID_MARKET_HEART_BEAT,					//å¸‚åœºå¿ƒè·³(ä¸€åˆ†é’Ÿä¸€æ¬¡)
+	ID_CODE_HEART_BEAT,						//ä»£ç å¿ƒè·³(æ— æ•°æ®ä¸€åˆ†é’Ÿä¸€æ¬¡)
+	ID_TRANS_CODES,							//éƒ¨åˆ†ä»£ç è½¬æ•°
 };
 
 struct TDF_CODE;
-//ÊÐ³¡ÊÂ¼þ MSG_SYS_MARKET_EVENT
+//å¸‚åœºäº‹ä»¶ MSG_SYS_MARKET_EVENT
 struct TDF_MARKET_EVENT
 {
-	char    szMarket[12];       //ÊÐ³¡Key
-	__int64 market_time;		//ÊÐ³¡Ê±¼ä£¬LTCÊ±¼ä(×Ô19000101Æðµ½µ±Ç°ÈÕÆÚµÄºÁÃëÊý)
-	__int64 vss_time;			//VSS±¾µØÊ±¼ä£¬LTCÊ±¼ä(×Ô19000101Æðµ½µ±Ç°ÈÕÆÚµÄºÁÃëÊý)
-	int		nEvent;				//²Î¿´MARKET_EVENT_NUM
-	int		nDate;				//ÊÐ³¡ÈÕÆÚ
-	int     nCodeSize;			//´úÂëÊý(²¿·Ö´úÂëºÍµ¥¸ö´úÂëÇåÅÌÊ±ÓÐÖµ)
-	TDF_CODE* pCode;			//´úÂëÐÅÏ¢(²¿·Ö´úÂëºÍµ¥¸ö´úÂëÇåÅÌÊ±ÓÐÖµ)
+	char    szMarket[12];       //å¸‚åœºKey
+	__int64 market_time;		//å¸‚åœºæ—¶é—´ï¼ŒLTCæ—¶é—´(è‡ª19000101èµ·åˆ°å½“å‰æ—¥æœŸçš„æ¯«ç§’æ•°)
+	__int64 vss_time;			//VSSæœ¬åœ°æ—¶é—´ï¼ŒLTCæ—¶é—´(è‡ª19000101èµ·åˆ°å½“å‰æ—¥æœŸçš„æ¯«ç§’æ•°)
+	int		nEvent;				//å‚çœ‹MARKET_EVENT_NUM
+	int		nDate;				//å¸‚åœºæ—¥æœŸ
+	int     nCodeSize;			//ä»£ç æ•°(éƒ¨åˆ†ä»£ç å’Œå•ä¸ªä»£ç æ¸…ç›˜æ—¶æœ‰å€¼)
+	TDF_CODE* pCode;			//ä»£ç ä¿¡æ¯(éƒ¨åˆ†ä»£ç å’Œå•ä¸ªä»£ç æ¸…ç›˜æ—¶æœ‰å€¼)
 };
 
-//¼Û²î±ä¸ü MSG_SYS_QUOTEUNIT_CHANGE
+//ä»·å·®å˜æ›´ MSG_SYS_QUOTEUNIT_CHANGE
 struct TDF_QUOTEUNIT_CHANGE
 {
 	char szMarket[12];
 	char szWindCode[32];
 };
 
-//»Ø·ÅÊ§°ÜÍ¨Öª
-//ÏûÏ¢ÀàÐÍMSG_SYS_FAIL_REPLAY
+//å›žæ”¾å¤±è´¥é€šçŸ¥
+//æ¶ˆæ¯ç±»åž‹MSG_SYS_FAIL_REPLAY
 struct TDF_FAIL_REPLAY
 {
-	char szMarket[12];	//ÊÐ³¡Ãû.SH-2-0¸ñÊ½
-	int nDate;			//»Ø·ÅÈÕÆÚ¡£¸ñÊ½YYMMDD
-	char szInfo[64];	//´íÎóÐÅÏ¢
+	char szMarket[12];	//å¸‚åœºå.SH-2-0æ ¼å¼
+	int nDate;			//å›žæ”¾æ—¥æœŸã€‚æ ¼å¼YYMMDD
+	char szInfo[64];	//é”™è¯¯ä¿¡æ¯
 };
 
-//ÏûÏ¢ÀàÐÍMSG_SYS_ADDCODE
+//æ¶ˆæ¯ç±»åž‹MSG_SYS_ADDCODE
 struct TDF_ADD_CODE
 {
 	char szMarket[8];       //market code: SHF-1-0
-	int  nCodeDate;			//´úÂë±íÈÕÆÚ
-	TDF_CODE* pCode;		//´úÂë±íÐÅÏ¢
-	unsigned int nItems;	//pCode¶ÔÓ¦µÄ´úÂëÊýÁ¿
+	int  nCodeDate;			//ä»£ç è¡¨æ—¥æœŸ
+	TDF_CODE* pCode;		//ä»£ç è¡¨ä¿¡æ¯
+	unsigned int nItems;	//pCodeå¯¹åº”çš„ä»£ç æ•°é‡
 };
-/******************************************************************* ´úÂë±í *********************************************************************/
-//Ê¹ÓÃTDF_GetCodeTable»ñÈ¡»ù±¾´úÂë±í£¬Ê¹ÓÃTDF_GetOptionCodeInfo»ñÈ¡ÆÚÈ¨´úÂë±í£¨ÆÚÈ¨º¬¶îÍâÐÅÏ¢£©
+/******************************************************************* ä»£ç è¡¨ *********************************************************************/
+//ä½¿ç”¨TDF_GetCodeTableèŽ·å–åŸºæœ¬ä»£ç è¡¨ï¼Œä½¿ç”¨TDF_GetOptionCodeInfoèŽ·å–æœŸæƒä»£ç è¡¨ï¼ˆæœŸæƒå«é¢å¤–ä¿¡æ¯ï¼‰
 struct TDF_CODE
 {
     char szWindCode[32];    //Wind Code: AG1302.SHF
     char szMarket[8];       //market code: SHF-1-0
-    char szCode[32];        //Ô­Ê¼ code:ag1302
+    char szCode[32];        //åŽŸå§‹ code:ag1302
     char szENName[48];
-    char szCNName[64];      //chinese name: »¦Òø1302
-    int nType;              //´úÂëÀàÐÍ               
-	char szWindType[8];		//windType : FUR(ÆÚ»õ)
-	int nRecord;			//µ±ÈÕ±àºÅ(marketID*64*1024+record)
-	int nLotSize;			//½»Ò×Á¿¸Ù,¸Û¹ÉÓÐÐ§
+    char szCNName[64];      //chinese name: æ²ªé“¶1302
+    int nType;              //ä»£ç ç±»åž‹               
+	char szWindType[8];		//windType : FUR(æœŸè´§)
+	int nRecord;			//å½“æ—¥ç¼–å·(marketID*64*1024+record)
+	int nLotSize;			//äº¤æ˜“é‡çº²,æ¸¯è‚¡æœ‰æ•ˆ
 };
 
 struct TDF_OPTION_CODE
 {
     TDF_CODE basicCode;
     
-    char szContractID[32];			// ÆÚÈ¨ºÏÔ¼´úÂë
-    char szUnderlyingSecurityID[32];// ±êµÄÖ¤È¯´úÂë
-    char chCallOrPut;               // ÈÏ¹ºÈÏ¹ÁC1        ÈÏ¹º£¬Ôò±¾×Ö¶ÎÎª¡°C¡±£»ÈôÎªÈÏ¹Á£¬Ôò±¾×Ö¶ÎÎª¡°P¡±
-    int  nExerciseDate;             // ÆÚÈ¨ÐÐÈ¨ÈÕ£¬YYYYMMDD    
-    //À©³ä×Ö¶Î
-    char chUnderlyingType;			// ±êµÄÖ¤È¯ÀàÐÍC3    0-A¹É 1-ETF (EBS ¨C ETF£¬ ASH ¨C A ¹É)
-	char chOptionType;              // Å·Ê½ÃÀÊ½C1        ÈôÎªÅ·Ê½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°E¡±£»ÈôÎªÃÀÊ½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°A¡±
+    char szContractID[32];			// æœŸæƒåˆçº¦ä»£ç 
+    char szUnderlyingSecurityID[32];// æ ‡çš„è¯åˆ¸ä»£ç 
+    char chCallOrPut;               // è®¤è´­è®¤æ²½C1        è®¤è´­ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œCâ€ï¼›è‹¥ä¸ºè®¤æ²½ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œPâ€
+    int  nExerciseDate;             // æœŸæƒè¡Œæƒæ—¥ï¼ŒYYYYMMDD    
+    //æ‰©å……å­—æ®µ
+    char chUnderlyingType;			// æ ‡çš„è¯åˆ¸ç±»åž‹C3    0-Aè‚¡ 1-ETF (EBS â€“ ETFï¼Œ ASH â€“ A è‚¡)
+	char chOptionType;              // æ¬§å¼ç¾Žå¼C1        è‹¥ä¸ºæ¬§å¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œEâ€ï¼›è‹¥ä¸ºç¾Žå¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œAâ€
 	
-	char chPriceLimitType;          // ÕÇµø·ùÏÞÖÆÀàÐÍC1 ¡®N¡¯±íÊ¾ÓÐÕÇµø·ùÏÞÖÆÀàÐÍ, ¡®R¡¯±íÊ¾ÎÞÕÇµø·ùÏÞÖÆÀàÐÍ
-	int  nContractMultiplierUnit;	// ºÏÔ¼µ¥Î»,         ¾­¹ý³ýÈ¨³ýÏ¢µ÷ÕûºóµÄºÏÔ¼µ¥Î», Ò»¶¨ÊÇÕûÊý
-	__int64  nExercisePrice;        // ÆÚÈ¨ÐÐÈ¨¼Û,       ¾­¹ý³ýÈ¨³ýÏ¢µ÷ÕûºóµÄÆÚÈ¨ÐÐÈ¨¼Û£¬ÓÒ¶ÔÆë£¬¾«È·µ½Àå
-	int  nStartDate;                // ÆÚÈ¨Ê×¸ö½»Ò×ÈÕ,YYYYMMDD
-	int  nEndDate;                  // ÆÚÈ¨×îºó½»Ò×ÈÕ/ÐÐÈ¨ÈÕ£¬YYYYMMDD
-	int  nExpireDate;               // ÆÚÈ¨µ½ÆÚÈÕ£¬YYYYMMDD
+	char chPriceLimitType;          // æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹C1 â€˜Nâ€™è¡¨ç¤ºæœ‰æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹, â€˜Râ€™è¡¨ç¤ºæ— æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹
+	int  nContractMultiplierUnit;	// åˆçº¦å•ä½,         ç»è¿‡é™¤æƒé™¤æ¯è°ƒæ•´åŽçš„åˆçº¦å•ä½, ä¸€å®šæ˜¯æ•´æ•°
+	__int64  nExercisePrice;        // æœŸæƒè¡Œæƒä»·,       ç»è¿‡é™¤æƒé™¤æ¯è°ƒæ•´åŽçš„æœŸæƒè¡Œæƒä»·ï¼Œå³å¯¹é½ï¼Œç²¾ç¡®åˆ°åŽ˜
+	int  nStartDate;                // æœŸæƒé¦–ä¸ªäº¤æ˜“æ—¥,YYYYMMDD
+	int  nEndDate;                  // æœŸæƒæœ€åŽäº¤æ˜“æ—¥/è¡Œæƒæ—¥ï¼ŒYYYYMMDD
+	int  nExpireDate;               // æœŸæƒåˆ°æœŸæ—¥ï¼ŒYYYYMMDD
 };
 union TD_EXCODE_INFO
 {
-	struct TD_OptionCodeInfo             //futures options ×¨ÓÃ (nType >= 0x90 && nType <= 0x95),·ÇÆÚÈ¨ÏÂÁÐ×Ö¶ÎÎÞÐ§
+	struct TD_OptionCodeInfo             //futures options ä¸“ç”¨ (nType >= 0x90 && nType <= 0x95),éžæœŸæƒä¸‹åˆ—å­—æ®µæ— æ•ˆ
 	{
-		char chContractID[32];           // ÆÚÈ¨ºÏÔ¼´úÂëC19
-		char szUnderlyingSecurityID[32]; // ±êµÄÖ¤È¯´úÂë
-		char chUnderlyingType;			 // ±êµÄÖ¤È¯ÀàÐÍC3    0-A¹É 1-ETF (EBS ¨C ETF£¬ ASH ¨C A ¹É)
-		char chOptionType;               // Å·Ê½ÃÀÊ½C1        ÈôÎªÅ·Ê½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°E¡±£»ÈôÎªÃÀÊ½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°A¡±
-		char chCallOrPut;                // ÈÏ¹ºÈÏ¹ÁC1        ÈÏ¹º£¬Ôò±¾×Ö¶ÎÎª¡°C¡±£»ÈôÎªÈÏ¹Á£¬Ôò±¾×Ö¶ÎÎª¡°P¡±
-		char chPriceLimitType;           // ÕÇµø·ùÏÞÖÆÀàÐÍC1 ¡®N¡¯±íÊ¾ÓÐÕÇµø·ùÏÞÖÆÀàÐÍ, ¡®R¡¯±íÊ¾ÎÞÕÇµø·ùÏÞÖÆÀàÐÍ
-		int  nContractMultiplierUnit;	 // ºÏÔ¼µ¥Î»,         ¾­¹ý³ýÈ¨³ýÏ¢µ÷ÕûºóµÄºÏÔ¼µ¥Î», Ò»¶¨ÊÇÕûÊý
-		__int64  nExercisePrice;             // ÆÚÈ¨ÐÐÈ¨¼Û,       ¾­¹ý³ýÈ¨³ýÏ¢µ÷ÕûºóµÄÆÚÈ¨ÐÐÈ¨¼Û£¬ÓÒ¶ÔÆë£¬¾«È·µ½Àå
-		int  nStartDate;                 // ÆÚÈ¨Ê×¸ö½»Ò×ÈÕ,YYYYMMDD
-		int  nEndDate;                   // ÆÚÈ¨×îºó½»Ò×ÈÕ/ÐÐÈ¨ÈÕ£¬YYYYMMDD
-		int  nExerciseDate;              // ÆÚÈ¨ÐÐÈ¨ÈÕ£¬YYYYMMDD
-		int  nExpireDate;                // ÆÚÈ¨µ½ÆÚÈÕ£¬YYYYMMDD
+		char chContractID[32];           // æœŸæƒåˆçº¦ä»£ç C19
+		char szUnderlyingSecurityID[32]; // æ ‡çš„è¯åˆ¸ä»£ç 
+		char chUnderlyingType;			 // æ ‡çš„è¯åˆ¸ç±»åž‹C3    0-Aè‚¡ 1-ETF (EBS â€“ ETFï¼Œ ASH â€“ A è‚¡)
+		char chOptionType;               // æ¬§å¼ç¾Žå¼C1        è‹¥ä¸ºæ¬§å¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œEâ€ï¼›è‹¥ä¸ºç¾Žå¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œAâ€
+		char chCallOrPut;                // è®¤è´­è®¤æ²½C1        è®¤è´­ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œCâ€ï¼›è‹¥ä¸ºè®¤æ²½ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œPâ€
+		char chPriceLimitType;           // æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹C1 â€˜Nâ€™è¡¨ç¤ºæœ‰æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹, â€˜Râ€™è¡¨ç¤ºæ— æ¶¨è·Œå¹…é™åˆ¶ç±»åž‹
+		int  nContractMultiplierUnit;	 // åˆçº¦å•ä½,         ç»è¿‡é™¤æƒé™¤æ¯è°ƒæ•´åŽçš„åˆçº¦å•ä½, ä¸€å®šæ˜¯æ•´æ•°
+		__int64  nExercisePrice;             // æœŸæƒè¡Œæƒä»·,       ç»è¿‡é™¤æƒé™¤æ¯è°ƒæ•´åŽçš„æœŸæƒè¡Œæƒä»·ï¼Œå³å¯¹é½ï¼Œç²¾ç¡®åˆ°åŽ˜
+		int  nStartDate;                 // æœŸæƒé¦–ä¸ªäº¤æ˜“æ—¥,YYYYMMDD
+		int  nEndDate;                   // æœŸæƒæœ€åŽäº¤æ˜“æ—¥/è¡Œæƒæ—¥ï¼ŒYYYYMMDD
+		int  nExerciseDate;              // æœŸæƒè¡Œæƒæ—¥ï¼ŒYYYYMMDD
+		int  nExpireDate;                // æœŸæƒåˆ°æœŸæ—¥ï¼ŒYYYYMMDD
 	}Option;
 };
 struct TDF_CODE_INFO
 {
-	int  nMarketID;           //½»Ò×ËùID£¬¶¨Òå¼ûÎÄµµ
-	int  nDataLevel;          //Êý¾ÝLevel
-	int  nFlag;               //Êý¾ÝÀ´Ô´
-	int  nType;				  //Ö¤È¯ÀàÐÍ
-	char chCode[32];          //Ö¤È¯´úÂë(Ô­Ê¼´úÂë)
-	char chName[64];		  //ººÓïÖ¤È¯Ãû³Æ
+	int  nMarketID;           //äº¤æ˜“æ‰€IDï¼Œå®šä¹‰è§æ–‡æ¡£
+	int  nDataLevel;          //æ•°æ®Level
+	int  nFlag;               //æ•°æ®æ¥æº
+	int  nType;				  //è¯åˆ¸ç±»åž‹
+	char chCode[32];          //è¯åˆ¸ä»£ç (åŽŸå§‹ä»£ç )
+	char chName[64];		  //æ±‰è¯­è¯åˆ¸åç§°
 	TD_EXCODE_INFO exCodeInfo;
-	char chWindType[8];		  //windType : FUR(ÆÚ»õ),²âÊÔ
-	int  nLotSize;			  //½»Ò×Á¿¸Ù,¸Û¹ÉÓÐÐ§
-	char chMarket[4];		  //ÊÐ³¡¼ò³Æ(Èç:SHF)
-	int  nIsRegistration;	  //Éî½»ËùÓÐÐ§£¬ÊÇ·ñ×¢²áÖÆ, 0: ÎÞÊý¾Ý; 1: ÊÇ; 2: ·ñ;
-	int  nExtType;			  //À©Õ¹ÀàÐÍ 1.Éî½»ËùÉÏÊÐ³õÆÚ
-	int  nRecord;			  //µ±ÈÕ±àºÅ
+	char chWindType[8];		  //windType : FUR(æœŸè´§),æµ‹è¯•
+	int  nLotSize;			  //äº¤æ˜“é‡çº²,æ¸¯è‚¡æœ‰æ•ˆ
+	char chMarket[4];		  //å¸‚åœºç®€ç§°(å¦‚:SHF)
+	int  nIsRegistration;	  //æ·±äº¤æ‰€æœ‰æ•ˆï¼Œæ˜¯å¦æ³¨å†Œåˆ¶, 0: æ— æ•°æ®; 1: æ˜¯; 2: å¦;
+	int  nExtType;			  //æ‰©å±•ç±»åž‹ 1.æ·±äº¤æ‰€ä¸Šå¸‚åˆæœŸ
+	int  nRecord;			  //å½“æ—¥ç¼–å·
 	char chWindCode[32];	  //Wind Code: AG1302.SHF
 	char chMarketKey[8];      //market code: SHF-1-0
 };
 
-//½»Ò×ËùID¶¨Òå///////////////////////////////
+//äº¤æ˜“æ‰€IDå®šä¹‰///////////////////////////////
 #ifndef ID_MARKET_DEFINE
 #define ID_MARKET_DEFINE
-#define ID_MARKET_SZ	0	//ÉîÛÚ
-#define ID_MARKET_SH	1	//ÉÏº£
+#define ID_MARKET_SZ	0	//æ·±åœ³
+#define ID_MARKET_SH	1	//ä¸Šæµ·
 #define ID_MARKET_PT	2	//PT
-#define ID_MARKET_HZ	3	//°å¿éÖ¸Êý
-#define ID_MARKET_SL	4	//×Ô¶¨ÒåÊÐ³¡
-#define ID_MARKET_MI	5	//×Ô¶¨ÒåÖ¸Êý
-#define ID_MARKET_HK	6	//¸Û¹É
-#define ID_MARKET_QH	7	//ÆÚ»õ
-#define ID_MARKET_FE	8	//Íâ»ã
-#define ID_MARKET_KF	9	//Íâ»ã(¸Û¹É)
-#define ID_MARKET_CF	10	//ÖÐ¹ú½ðÈÚÖ¸Êý
+#define ID_MARKET_HZ	3	//æ¿å—æŒ‡æ•°
+#define ID_MARKET_SL	4	//è‡ªå®šä¹‰å¸‚åœº
+#define ID_MARKET_MI	5	//è‡ªå®šä¹‰æŒ‡æ•°
+#define ID_MARKET_HK	6	//æ¸¯è‚¡
+#define ID_MARKET_QH	7	//æœŸè´§
+#define ID_MARKET_FE	8	//å¤–æ±‡
+#define ID_MARKET_KF	9	//å¤–æ±‡(æ¸¯è‚¡)
+#define ID_MARKET_CF	10	//ä¸­å›½é‡‘èžæŒ‡æ•°
 
-#define ID_MARKET_SHF	11	//ÉÏº£½ðÊôÉÌÆ·½»Ò×Ëù
-#define ID_MARKET_CZC	12	//Ö£ÖÝÉÌÆ·
-#define ID_MARKET_DCE	13	//´óÁ¬ÉÌÆ·
+#define ID_MARKET_SHF	11	//ä¸Šæµ·é‡‘å±žå•†å“äº¤æ˜“æ‰€
+#define ID_MARKET_CZC	12	//éƒ‘å·žå•†å“
+#define ID_MARKET_DCE	13	//å¤§è¿žå•†å“
 /////////////////////////////////////////////
-#define ID_MARKET_CME	14  //Ö¥¼Ó¸çÉÌÒµ½»Ò×Ëù
-#define ID_MARKET_CBT	15  //Ö¥¼Ó¸çÆÚ»õ½»Ò×Ëù
-#define ID_MARKET_CMX	16  //Å¦Ô¼ÉÌÆ·ÆÚ»õ½»Ò×Ëù
-#define ID_MARKET_NYM	17  //Å¦Ô¼ÉÌÆ·½»Ò×Ëù
-#define ID_MARKET_NYB	18  //Å¦Ô¼ÆÚ»õ½»Ò×Ëù
-#define ID_MARKET_IPE	19	//Â×¶Ø¹ú¼ÊÊ¯ÓÍ½»Ò×Ëù
-#define ID_MARKET_LME	20	//Â×¶Ø½ðÊô½»Ò×Ëù
-#define ID_MARKET_N		21  //Å¦Ô¼½»Ò×Ëù
-#define ID_MARKET_O		22  //ÄÉË¹´ï¿Ë½»Ò×Ëù
-#define ID_MARKET_HKF	23  //Ïã¸Û½»Ò×ËùÆÚ»õ/ÆÚÈ¨
+#define ID_MARKET_CME	14  //èŠåŠ å“¥å•†ä¸šäº¤æ˜“æ‰€
+#define ID_MARKET_CBT	15  //èŠåŠ å“¥æœŸè´§äº¤æ˜“æ‰€
+#define ID_MARKET_CMX	16  //çº½çº¦å•†å“æœŸè´§äº¤æ˜“æ‰€
+#define ID_MARKET_NYM	17  //çº½çº¦å•†å“äº¤æ˜“æ‰€
+#define ID_MARKET_NYB	18  //çº½çº¦æœŸè´§äº¤æ˜“æ‰€
+#define ID_MARKET_IPE	19	//ä¼¦æ•¦å›½é™…çŸ³æ²¹äº¤æ˜“æ‰€
+#define ID_MARKET_LME	20	//ä¼¦æ•¦é‡‘å±žäº¤æ˜“æ‰€
+#define ID_MARKET_N		21  //çº½çº¦äº¤æ˜“æ‰€
+#define ID_MARKET_O		22  //çº³æ–¯è¾¾å…‹äº¤æ˜“æ‰€
+#define ID_MARKET_HKF	23  //é¦™æ¸¯äº¤æ˜“æ‰€æœŸè´§/æœŸæƒ
 /////////////////////////////////////////////
 #endif
-/******************************************************************* Êý¾ÝÏûÏ¢ *********************************************************************/
-//Êý¾ÝÀàÐÍMSG_DATA_BBQTRANSACTION,     
+/******************************************************************* æ•°æ®æ¶ˆæ¯ *********************************************************************/
+//æ•°æ®ç±»åž‹MSG_DATA_BBQTRANSACTION,     
 struct TDF_BBQTRANSACTION_DATA
 {
 	char        szWindCode[32];         //Wind Code: AG1302.SHF
-	int         nActionDay;             //ÒµÎñ·¢ÉúÈÕ(×ÔÈ»ÈÕ)
-	int			nTime;					//Ê±¼ä(HHMMSSmmm)
-	int         nDoneID;                //³É½»±¨¼Û±àºÅ
-	__int64			nPrice;				//³É½»ÊÕÒæÂÊ(%)»ò¼Û¸ñ *10000
-	char        chPriceStatus;          //ÊÕÒæÂÊ»ò¼Û¸ñ±êÊ¶	1£ºÊÕÒæÂÊ 	2£º¼Û¸ñ
-	char        chStatus;               //É¾³ý/³É½»
-	char        chDirection;            //³É½»·½Ïò	1£ºdone	2£ºgvn		3£ºtkn		4£ºÆäËû
-	char        chSource;               //±¨¼Û»ú¹¹	1£º¹ú¼Ê 2£ºÆ½°²ÀûË³ 3£ºÖÐ³Ï 4£ºÌì½òÐÅÌÆ	5£º¹úÀû
-	char        chSpecialFlag;          //±êÊ¶±¨¼ÛÊÇ·ñÊÇÐÐÈ¨»òµ½ÆÚ	0ÎÞ±ê¼Ç	1±¸×¢ÖÐ°üº¬µ½ÆÚ		2±¸×¢ÖÐ°üº¬ÐÐÈ¨
+	int         nActionDay;             //ä¸šåŠ¡å‘ç”Ÿæ—¥(è‡ªç„¶æ—¥)
+	int			nTime;					//æ—¶é—´(HHMMSSmmm)
+	int         nDoneID;                //æˆäº¤æŠ¥ä»·ç¼–å·
+	__int64			nPrice;				//æˆäº¤æ”¶ç›ŠçŽ‡(%)æˆ–ä»·æ ¼ *10000
+	char        chPriceStatus;          //æ”¶ç›ŠçŽ‡æˆ–ä»·æ ¼æ ‡è¯†	1ï¼šæ”¶ç›ŠçŽ‡ 	2ï¼šä»·æ ¼
+	char        chStatus;               //åˆ é™¤/æˆäº¤
+	char        chDirection;            //æˆäº¤æ–¹å‘	1ï¼šdone	2ï¼šgvn		3ï¼štkn		4ï¼šå…¶ä»–
+	char        chSource;               //æŠ¥ä»·æœºæž„	1ï¼šå›½é™… 2ï¼šå¹³å®‰åˆ©é¡º 3ï¼šä¸­è¯š 4ï¼šå¤©æ´¥ä¿¡å”	5ï¼šå›½åˆ©
+	char        chSpecialFlag;          //æ ‡è¯†æŠ¥ä»·æ˜¯å¦æ˜¯è¡Œæƒæˆ–åˆ°æœŸ	0æ— æ ‡è®°	1å¤‡æ³¨ä¸­åŒ…å«åˆ°æœŸ		2å¤‡æ³¨ä¸­åŒ…å«è¡Œæƒ
 };
-//Êý¾ÝÀàMSG_DATA_BBQBID,    
+//æ•°æ®ç±»MSG_DATA_BBQBID,    
 struct TDF_BBQBID_DATA
 {
 	char        szWindCode[32];         //Wind Code: AG1302.SHF 
-	int         nActionDay;             //ÒµÎñ·¢ÉúÈÕ(×ÔÈ»ÈÕ)
-	int			nTime;					//Ê±¼ä(HHMMSSmmm)
-	char        chSource;               //±¨¼Û»ú¹¹
+	int         nActionDay;             //ä¸šåŠ¡å‘ç”Ÿæ—¥(è‡ªç„¶æ—¥)
+	int			nTime;					//æ—¶é—´(HHMMSSmmm)
+	char        chSource;               //æŠ¥ä»·æœºæž„
 
-	__int64     nBidPrice;				//ÂòÈëÊÕÒæÂÊ»ò¼Û¸ñ x10000
-	__int64     nBidVolume;				//ÂòÈëÁ¿ x10000
-	char        chBidPriceStatus;		//ÊÕÒæÂÊ»ò¼Û¸ñ±êÊ¶	1£ºÊÕÒæÂÊ 	2£º¼Û¸ñ
-	char        chIsBid;				//ÊÇ·ñbid	0£º²»ÊÇbid£¨ÆÕÍ¨±¨¼Û£©	1£ºÊÇbid£¨ÒâÏò±¨¼Û£©
-	char        chBidSpecialFlag;		//±êÊ¶±¨¼ÛÊÇ·ñÊÇÐÐÈ¨»òµ½ÆÚ	0ÎÞ±ê¼Ç	1±¸×¢ÖÐ°üº¬µ½ÆÚ		2±¸×¢ÖÐ°üº¬ÐÐÈ¨
-	char        chBidStatus;			//ÂòÈë×îÓÅ±¨¼Û×´Ì¬	0£ºÕý³£±¨¼Û	1£º³·Ïú±¨¼Û
+	__int64     nBidPrice;				//ä¹°å…¥æ”¶ç›ŠçŽ‡æˆ–ä»·æ ¼ x10000
+	__int64     nBidVolume;				//ä¹°å…¥é‡ x10000
+	char        chBidPriceStatus;		//æ”¶ç›ŠçŽ‡æˆ–ä»·æ ¼æ ‡è¯†	1ï¼šæ”¶ç›ŠçŽ‡ 	2ï¼šä»·æ ¼
+	char        chIsBid;				//æ˜¯å¦bid	0ï¼šä¸æ˜¯bidï¼ˆæ™®é€šæŠ¥ä»·ï¼‰	1ï¼šæ˜¯bidï¼ˆæ„å‘æŠ¥ä»·ï¼‰
+	char        chBidSpecialFlag;		//æ ‡è¯†æŠ¥ä»·æ˜¯å¦æ˜¯è¡Œæƒæˆ–åˆ°æœŸ	0æ— æ ‡è®°	1å¤‡æ³¨ä¸­åŒ…å«åˆ°æœŸ		2å¤‡æ³¨ä¸­åŒ…å«è¡Œæƒ
+	char        chBidStatus;			//ä¹°å…¥æœ€ä¼˜æŠ¥ä»·çŠ¶æ€	0ï¼šæ­£å¸¸æŠ¥ä»·	1ï¼šæ’¤é”€æŠ¥ä»·
 
-	__int64     nOfrPrice;				//Âô³öÊÕÒæÂÊ»ò¼Û¸ñ x10000
-	__int64     nOfrVolume;				//Âô³öÁ¿	ËùÓÐÁ¿µÄ¼Ó×Ü£¬Èç2000+1000£¬¾ÍºÏ²¢Îª3000£»Èç×Ö·û´®ÖÐº¬- - ÔòÊÓÎª0. x10000
-	char        chOfrPriceStatus;		//ÊÕÒæÂÊ»ò¼Û¸ñ±êÊ¶	1£ºÊÕÒæÂÊ 	2£º¼Û¸ñ
-	char        chIsOfr;				//ÊÇ·ñofr	0£º²»ÊÇofr£¨ÆÕÍ¨±¨¼Û£©	  1£ºÊÇofr£¨ÒâÏò±¨¼Û£©
-	char        chOfrSpecialFlag;		//±êÊ¶±¨¼ÛÊÇ·ñÊÇÐÐÈ¨»òµ½ÆÚ	0ÎÞ±ê¼Ç	1±¸×¢ÖÐ°üº¬µ½ÆÚ		2±¸×¢ÖÐ°üº¬ÐÐÈ¨
-	char        chOfrStatus;			//Âô³ö×îÓÅ±¨¼Û×´Ì¬	0£ºÕý³£±¨¼Û	1£º³·Ïú±¨¼Û
-	int         nDoneID;                //³É½»±¨¼Û±àºÅ
-	char		aucInfo[420];			//ÂòÂôÅÌÔ­Ê¼ÐÅÏ¢
+	__int64     nOfrPrice;				//å–å‡ºæ”¶ç›ŠçŽ‡æˆ–ä»·æ ¼ x10000
+	__int64     nOfrVolume;				//å–å‡ºé‡	æ‰€æœ‰é‡çš„åŠ æ€»ï¼Œå¦‚2000+1000ï¼Œå°±åˆå¹¶ä¸º3000ï¼›å¦‚å­—ç¬¦ä¸²ä¸­å«- - åˆ™è§†ä¸º0. x10000
+	char        chOfrPriceStatus;		//æ”¶ç›ŠçŽ‡æˆ–ä»·æ ¼æ ‡è¯†	1ï¼šæ”¶ç›ŠçŽ‡ 	2ï¼šä»·æ ¼
+	char        chIsOfr;				//æ˜¯å¦ofr	0ï¼šä¸æ˜¯ofrï¼ˆæ™®é€šæŠ¥ä»·ï¼‰	  1ï¼šæ˜¯ofrï¼ˆæ„å‘æŠ¥ä»·ï¼‰
+	char        chOfrSpecialFlag;		//æ ‡è¯†æŠ¥ä»·æ˜¯å¦æ˜¯è¡Œæƒæˆ–åˆ°æœŸ	0æ— æ ‡è®°	1å¤‡æ³¨ä¸­åŒ…å«åˆ°æœŸ		2å¤‡æ³¨ä¸­åŒ…å«è¡Œæƒ
+	char        chOfrStatus;			//å–å‡ºæœ€ä¼˜æŠ¥ä»·çŠ¶æ€	0ï¼šæ­£å¸¸æŠ¥ä»·	1ï¼šæ’¤é”€æŠ¥ä»·
+	int         nDoneID;                //æˆäº¤æŠ¥ä»·ç¼–å·
+	char		aucInfo[420];			//ä¹°å–ç›˜åŽŸå§‹ä¿¡æ¯
 };
-//Íâ»ã½»Ò×ÖÐÐÄÕ®È¯Ïà¹ØÐÅÏ¢
+//å¤–æ±‡äº¤æ˜“ä¸­å¿ƒå€ºåˆ¸ç›¸å…³ä¿¡æ¯
 struct TDF_NoSSE_Bond{
-	char    chBidQuoteOrg[32];   //Âò±¨¼Û·½
-	char    chAskQuoteOrg[32];   //Âô±¨¼Û·½
-	int     nBidCleanPrice;      //×îÓÅÂòÈë¾»¼Û
-	int     nAskCleanPrice;      //×îÓÅÂô³ö¾»¼Û
-	int     nBidYield;           //×îÓÅÂòÈëµ½ÆÚÊÕÒæÂÊ
-	int     nAskYield;           //×îÓÅÂô³öµ½ÆÚÊÕÒæÂÊ
-	__int64 iBidTradeVolume;     //×îÓÅÂòÈë±¨¼ÛÁ¿
-	__int64 iAskTradeVolume;     //×îÓÅÂô³ö±¨¼ÛÁ¿
-	int     nBidTotalPrice;      //×îÓÅÂòÈëÈ«¼Û
-	int     nAskTotalPrice;      //×îÓÅÂô³öÈ«¼Û
-	int		nBidQuoteTime;		 //ÂòÈë±¨¼ÛÊ±¼ä
-	int		nAskQuoteTime;		 //Âô³ö±¨¼ÛÊ±¼ä
+	char    chBidQuoteOrg[32];   //ä¹°æŠ¥ä»·æ–¹
+	char    chAskQuoteOrg[32];   //å–æŠ¥ä»·æ–¹
+	int     nBidCleanPrice;      //æœ€ä¼˜ä¹°å…¥å‡€ä»·
+	int     nAskCleanPrice;      //æœ€ä¼˜å–å‡ºå‡€ä»·
+	int     nBidYield;           //æœ€ä¼˜ä¹°å…¥åˆ°æœŸæ”¶ç›ŠçŽ‡
+	int     nAskYield;           //æœ€ä¼˜å–å‡ºåˆ°æœŸæ”¶ç›ŠçŽ‡
+	__int64 iBidTradeVolume;     //æœ€ä¼˜ä¹°å…¥æŠ¥ä»·é‡
+	__int64 iAskTradeVolume;     //æœ€ä¼˜å–å‡ºæŠ¥ä»·é‡
+	int     nBidTotalPrice;      //æœ€ä¼˜ä¹°å…¥å…¨ä»·
+	int     nAskTotalPrice;      //æœ€ä¼˜å–å‡ºå…¨ä»·
+	int		nBidQuoteTime;		 //ä¹°å…¥æŠ¥ä»·æ—¶é—´
+	int		nAskQuoteTime;		 //å–å‡ºæŠ¥ä»·æ—¶é—´
 };
 
-//ETFÉê¹º¡¢Êê»Ø
+//ETFç”³è´­ã€èµŽå›ž
 struct TDF_ETF_DATA
 {
-	int		nETFBuyNumber;       // ETFÉê¹º±ÊÊý
-	int		nETFSellNumber;      // ETFÊê»Ø±ÊÊý
-	__int64 iETFBuyAmount;		 // ETFÉê¹ºÊýÁ¿
-	__int64 iETFBuyMoney;		 // ETFÉê¹º½ð¶î
-	__int64 iETFSellAmount;		 // ETFÊê»ØÊýÁ¿
-	__int64 iETFSellMoney;		 // ETFÊê»Ø½ð¶î
+	int		nETFBuyNumber;       // ETFç”³è´­ç¬”æ•°
+	int		nETFSellNumber;      // ETFèµŽå›žç¬”æ•°
+	__int64 iETFBuyAmount;		 // ETFç”³è´­æ•°é‡
+	__int64 iETFBuyMoney;		 // ETFç”³è´­é‡‘é¢
+	__int64 iETFSellAmount;		 // ETFèµŽå›žæ•°é‡
+	__int64 iETFSellMoney;		 // ETFèµŽå›žé‡‘é¢
 };
 
-//ÉÏÖ¤¹ÌÊÕÏà¹ØÕ®È¯×Ö¶Î
+//ä¸Šè¯å›ºæ”¶ç›¸å…³å€ºåˆ¸å­—æ®µ
 struct SSE_BOND_DATA
 {
-	int nPreWeightedCleanPrice;   //Ç°¼ÓÈ¨Æ½¾ù¾»¼Û
-	int nWeightedCleanPrice;      //¼ÓÈ¨Æ½¾ù¾»¼Û
-	int nPreClosingYield;         //Ç°ÊÕÅÌÊÕÒæÂÊ
-	int nOpeningYield;            //¿ªÅÌÊÕÒæÂÊ
-	int nHighestYield;            //×î¸ßÊÕÒæÂÊ
-	int nLowestYield;             //×îµÍÊÕÒæÂÊ
-	int nPreWeightedYield;        //Ç°¼ÓÈ¨Æ½¾ùÊÕÒæÂÊ
-	int nWeightedYield;           //¼ÓÈ¨Æ½¾ùÊÕÒæÂÊ
-	int nLastYield;				  //×îÐÂÊÕÒæÂÊ
-	char chSecurityStatus;		  //¹Ì¶¨ÊÕÒæN: Õý³£, S:¹ÒÆð(½ûÖ¹) Z:ÕªÅÆ D: µ½ÆÚ
-	char chSecurityType;		  //¹Ì¶¨ÊÕÒæ N£º¹úÕ®,	E£º¹«Ë¾Õ® P£ºË½Ä¼Õ®È¯ A£ºÐÅ´û×Ê²úÖ§³ÖÖ¤È¯ T£ºÌØ¶¨Õ®È¯ R£º¹«Ä¼ REITs ¿Õ¸ñ£ºÆäËû
-	char chCanSellShort;		  //¹Ì¶¨ÊÕÒæ Y£º¿ÉÒÔ×ö¿Õ N£º²»ÄÜ×ö¿Õ
-	char chTradeProduct[2];		  //¹Ì¶¨ÊÕÒæ 01£º¹úÕ®ÏÖÈ¯ 03£º¹«Ë¾Õ®ÏÖÈ¯ 05£ºÕ®È¯ÖÊÑºÊ½Ð­Òé»Ø¹º 06£ºÖÐÐ¡ÆóÒµË½Ä¼Õ®È¯ 10£ºÈý·½»Ø¹º 15£º¹«Ä¼ REITs 21£ºÌØ¶¨Õ®È¯
-	int nBasicInterestRateSpread; //¹Ì¶¨ÊÕÒæ »ù±¾Àû²î, µ¥Î»ÎªÀå
+	int nPreWeightedCleanPrice;   //å‰åŠ æƒå¹³å‡å‡€ä»·
+	int nWeightedCleanPrice;      //åŠ æƒå¹³å‡å‡€ä»·
+	int nPreClosingYield;         //å‰æ”¶ç›˜æ”¶ç›ŠçŽ‡
+	int nOpeningYield;            //å¼€ç›˜æ”¶ç›ŠçŽ‡
+	int nHighestYield;            //æœ€é«˜æ”¶ç›ŠçŽ‡
+	int nLowestYield;             //æœ€ä½Žæ”¶ç›ŠçŽ‡
+	int nPreWeightedYield;        //å‰åŠ æƒå¹³å‡æ”¶ç›ŠçŽ‡
+	int nWeightedYield;           //åŠ æƒå¹³å‡æ”¶ç›ŠçŽ‡
+	int nLastYield;				  //æœ€æ–°æ”¶ç›ŠçŽ‡
+	char chSecurityStatus;		  //å›ºå®šæ”¶ç›ŠN: æ­£å¸¸, S:æŒ‚èµ·(ç¦æ­¢) Z:æ‘˜ç‰Œ D: åˆ°æœŸ
+	char chSecurityType;		  //å›ºå®šæ”¶ç›Š Nï¼šå›½å€º,	Eï¼šå…¬å¸å€º Pï¼šç§å‹Ÿå€ºåˆ¸ Aï¼šä¿¡è´·èµ„äº§æ”¯æŒè¯åˆ¸ Tï¼šç‰¹å®šå€ºåˆ¸ Rï¼šå…¬å‹Ÿ REITs ç©ºæ ¼ï¼šå…¶ä»–
+	char chCanSellShort;		  //å›ºå®šæ”¶ç›Š Yï¼šå¯ä»¥åšç©º Nï¼šä¸èƒ½åšç©º
+	char chTradeProduct[2];		  //å›ºå®šæ”¶ç›Š 01ï¼šå›½å€ºçŽ°åˆ¸ 03ï¼šå…¬å¸å€ºçŽ°åˆ¸ 05ï¼šå€ºåˆ¸è´¨æŠ¼å¼åè®®å›žè´­ 06ï¼šä¸­å°ä¼ä¸šç§å‹Ÿå€ºåˆ¸ 10ï¼šä¸‰æ–¹å›žè´­ 15ï¼šå…¬å‹Ÿ REITs 21ï¼šç‰¹å®šå€ºåˆ¸
+	int nBasicInterestRateSpread; //å›ºå®šæ”¶ç›Š åŸºæœ¬åˆ©å·®, å•ä½ä¸ºåŽ˜
 };
 
-//ÉîÛÚÐÂÕ®È¯×Ö¶Î
+//æ·±åœ³æ–°å€ºåˆ¸å­—æ®µ
 struct TDF_NB_DATA
 {
-	int				nHighLimit[5];			//5ÖÖ½»Ò×·½Ê½µÄÕÇÍ£¼Û
-	int				nLowLimit[5];			//5ÖÖ½»Ò×·½Ê½µÄµøÍ£¼Û
-	unsigned char	nPricingMethod;			//1=¾»¼Û  2=È«¼Û
-	__int64			iAuctionVolumeTrade;	//Æ¥Åä³É½»³É½»Á¿
-	__int64			iAuctionValueTrade;		//Æ¥Åä³É½»³É½»½ð¶î
-	__int64			iPriceAuctionTrade;		//Æ¥Åä³É½»×î½ü¼Û
-	char			chTradingPhaseCode[5];	//½»Ò×·½Ê½Ëù´¦µÄ½»Ò×½×¶Î´úÂë:    N0=Æ¥Åä³É½» N1=Ð­ÉÌ³É½» N2=µã»÷³É½» N3=Ñ¯¼Û³É½» N4=¾ºÂò³É½»
-	unsigned char	uTradingType;			//µ±Ç°×îÐÂ¼Û¶ÔÓ¦µÄ½»Ò×·½Ê½:	1=Æ¥Åä³É½» 2=Ð­ÉÌ³É½» 3=µã»÷³É½» 4=Ñ¯¼Û³É½» 5=¾ºÂò³É½»
-	short			nTypeID;				//ÐÐÇéÀà±ð, Éî½»Ëù¶ÔÓ¦MDStreamIDµÄÕûÊý
-	__int64			iPriceOpen;				//·ÇÆ¥ÅäÀàÐÍ¿ªÅÌ¼Û
-	__int64			iPriceHigh;				//·ÇÆ¥ÅäÀàÐÍ×î¸ß¼Û
-	__int64			iPriceLow;				//·ÇÆ¥ÅäÀàÐÍ×îµÍ¼Û
+	int				nHighLimit[5];			//5ç§äº¤æ˜“æ–¹å¼çš„æ¶¨åœä»·
+	int				nLowLimit[5];			//5ç§äº¤æ˜“æ–¹å¼çš„è·Œåœä»·
+	unsigned char	nPricingMethod;			//1=å‡€ä»·  2=å…¨ä»·
+	__int64			iAuctionVolumeTrade;	//åŒ¹é…æˆäº¤æˆäº¤é‡
+	__int64			iAuctionValueTrade;		//åŒ¹é…æˆäº¤æˆäº¤é‡‘é¢
+	__int64			iPriceAuctionTrade;		//åŒ¹é…æˆäº¤æœ€è¿‘ä»·
+	char			chTradingPhaseCode[5];	//äº¤æ˜“æ–¹å¼æ‰€å¤„çš„äº¤æ˜“é˜¶æ®µä»£ç :    N0=åŒ¹é…æˆäº¤ N1=åå•†æˆäº¤ N2=ç‚¹å‡»æˆäº¤ N3=è¯¢ä»·æˆäº¤ N4=ç«žä¹°æˆäº¤
+	unsigned char	uTradingType;			//å½“å‰æœ€æ–°ä»·å¯¹åº”çš„äº¤æ˜“æ–¹å¼:	1=åŒ¹é…æˆäº¤ 2=åå•†æˆäº¤ 3=ç‚¹å‡»æˆäº¤ 4=è¯¢ä»·æˆäº¤ 5=ç«žä¹°æˆäº¤
+	short			nTypeID;				//è¡Œæƒ…ç±»åˆ«, æ·±äº¤æ‰€å¯¹åº”MDStreamIDçš„æ•´æ•°
+	__int64			iPriceOpen;				//éžåŒ¹é…ç±»åž‹å¼€ç›˜ä»·
+	__int64			iPriceHigh;				//éžåŒ¹é…ç±»åž‹æœ€é«˜ä»·
+	__int64			iPriceLow;				//éžåŒ¹é…ç±»åž‹æœ€ä½Žä»·
 };
 
-//Êý¾ÝÀàÐÍMSG_DATA_MARKET
+//æ•°æ®ç±»åž‹MSG_DATA_MARKET
 struct TDF_MARKET_DATA
 {
     char        szWindCode[32];         //Wind Code: AG1302.SHF
-    char        szCode[32];             //Ô­Ê¼ Code
-    int         nActionDay;             //ÒµÎñ·¢ÉúÈÕ(×ÔÈ»ÈÕ)
-    int         nTradingDay;            //½»Ò×ÈÕ
-    int			nTime;					//Ê±¼ä(HHMMSSmmm)
-    int			nStatus;				//×´Ì¬
-    __int64		nPreClose;				//Ç°ÊÕÅÌ¼Û
-    __int64		nOpen;					//¿ªÅÌ¼Û
-    __int64		nHigh;					//×î¸ß¼Û
-    __int64		nLow;					//×îµÍ¼Û
-    __int64		nMatch;					//×îÐÂ¼Û
-    __int64		nAskPrice[10];			//ÉêÂô¼Û
-    __int64		nAskVol[10];			//ÉêÂôÁ¿
-    __int64		nBidPrice[10];			//ÉêÂò¼Û
-    __int64		nBidVol[10];			//ÉêÂòÁ¿
-    int			nNumTrades;				//³É½»±ÊÊý
-    __int64		iVolume;				//³É½»×ÜÁ¿
-    __int64		iTurnover;				//³É½»×Ü½ð¶î
-    __int64		nTotalBidVol;			//Î¯ÍÐÂòÈë×ÜÁ¿
-    __int64		nTotalAskVol;			//Î¯ÍÐÂô³ö×ÜÁ¿
-    __int64		nWeightedAvgBidPrice;	//¼ÓÈ¨Æ½¾ùÎ¯Âò¼Û¸ñ
-    __int64		nWeightedAvgAskPrice;	//¼ÓÈ¨Æ½¾ùÎ¯Âô¼Û¸ñ
-    int			nIOPV;					//IOPV¾»Öµ¹ÀÖµ
-    int			nYieldToMaturity;		//µ½ÆÚÊÕÒæÂÊ
-    __int64		nHighLimited;			//ÕÇÍ£¼Û
-    __int64		nLowLimited;			//µøÍ£¼Û
-    char		chPrefix[4];			//Ö¤È¯ÐÅÏ¢Ç°×º
-    int			nSyl1;					//ÊÐÓ¯ÂÊ1
-    int			nSyl2;					//ÊÐÓ¯ÂÊ2
-    int			nSD2;					//Éýµø2£¨¶Ô±ÈÉÏÒ»±Ê£©
-	TDF_NoSSE_Bond TDF_Bond;			//Íâ»ã½»Ò×ÖÐÐÄÕ®È¯Ïà¹ØÐÅÏ¢
-	int			nTradeFlag;				//½»Ò×±êÖ¾,¾ßÌåº¬Òå²Î¿´ÎÄµµ
+    char        szCode[32];             //åŽŸå§‹ Code
+    int         nActionDay;             //ä¸šåŠ¡å‘ç”Ÿæ—¥(è‡ªç„¶æ—¥)
+    int         nTradingDay;            //äº¤æ˜“æ—¥
+    int			nTime;					//æ—¶é—´(HHMMSSmmm)
+    int			nStatus;				//çŠ¶æ€
+    __int64		nPreClose;				//å‰æ”¶ç›˜ä»·
+    __int64		nOpen;					//å¼€ç›˜ä»·
+    __int64		nHigh;					//æœ€é«˜ä»·
+    __int64		nLow;					//æœ€ä½Žä»·
+    __int64		nMatch;					//æœ€æ–°ä»·
+    __int64		nAskPrice[10];			//ç”³å–ä»·
+    __int64		nAskVol[10];			//ç”³å–é‡
+    __int64		nBidPrice[10];			//ç”³ä¹°ä»·
+    __int64		nBidVol[10];			//ç”³ä¹°é‡
+    int			nNumTrades;				//æˆäº¤ç¬”æ•°
+    __int64		iVolume;				//æˆäº¤æ€»é‡
+    __int64		iTurnover;				//æˆäº¤æ€»é‡‘é¢
+    __int64		nTotalBidVol;			//å§”æ‰˜ä¹°å…¥æ€»é‡
+    __int64		nTotalAskVol;			//å§”æ‰˜å–å‡ºæ€»é‡
+    __int64		nWeightedAvgBidPrice;	//åŠ æƒå¹³å‡å§”ä¹°ä»·æ ¼
+    __int64		nWeightedAvgAskPrice;	//åŠ æƒå¹³å‡å§”å–ä»·æ ¼
+    int			nIOPV;					//IOPVå‡€å€¼ä¼°å€¼
+    int			nYieldToMaturity;		//åˆ°æœŸæ”¶ç›ŠçŽ‡
+    __int64		nHighLimited;			//æ¶¨åœä»·
+    __int64		nLowLimited;			//è·Œåœä»·
+    char		chPrefix[4];			//è¯åˆ¸ä¿¡æ¯å‰ç¼€
+    int			nSyl1;					//å¸‚ç›ˆçŽ‡1
+    int			nSyl2;					//å¸‚ç›ˆçŽ‡2
+    int			nSD2;					//å‡è·Œ2ï¼ˆå¯¹æ¯”ä¸Šä¸€ç¬”ï¼‰
+	TDF_NoSSE_Bond TDF_Bond;			//å¤–æ±‡äº¤æ˜“ä¸­å¿ƒå€ºåˆ¸ç›¸å…³ä¿¡æ¯
+	int			nTradeFlag;				//äº¤æ˜“æ ‡å¿—,å…·ä½“å«ä¹‰å‚çœ‹æ–‡æ¡£
 	
-	__int64		iAfterPrice;			//ÅÌºó¼Û¸ñ(¿Æ´´°åÓÐÊ¹ÓÃµ½)
-	int			nAfterVolume;			//ÅÌºóÁ¿(¿Æ´´°åÓÐÊ¹ÓÃµ½)
-	__int64		iAfterTurnover;			//ÅÌºó³É½»½ð¶î(¿Æ´´°åÓÐÊ¹ÓÃµ½)
-	int			nAfterMatchItems;		//ÅÌºó³É½»±ÊÊý(¿Æ´´°åÓÐÊ¹ÓÃµ½)
+	__int64		iAfterPrice;			//ç›˜åŽä»·æ ¼(ç§‘åˆ›æ¿æœ‰ä½¿ç”¨åˆ°)
+	int			nAfterVolume;			//ç›˜åŽé‡(ç§‘åˆ›æ¿æœ‰ä½¿ç”¨åˆ°)
+	__int64		iAfterTurnover;			//ç›˜åŽæˆäº¤é‡‘é¢(ç§‘åˆ›æ¿æœ‰ä½¿ç”¨åˆ°)
+	int			nAfterMatchItems;		//ç›˜åŽæˆäº¤ç¬”æ•°(ç§‘åˆ›æ¿æœ‰ä½¿ç”¨åˆ°)
 	
-	const TDF_CODE_INFO *  pCodeInfo;   //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
+	const TDF_CODE_INFO *  pCodeInfo;   //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
 
-	TDF_ETF_DATA TDF_ETF; 				//ETFÉê¹ºÊê»ØÐÅÏ¢(ÉÏ½»Ëù)
-	SSE_BOND_DATA SSEBondData;			//ÉÏÖ¤¹ÌÊÕÕ®È¯Ïà¹Ø×Ö¶Î
-	TDF_NB_DATA NBData;					//ÉîÛÚÐÂÕ®È¯×Ö¶Î
+	TDF_ETF_DATA TDF_ETF; 				//ETFç”³è´­èµŽå›žä¿¡æ¯(ä¸Šäº¤æ‰€)
+	SSE_BOND_DATA SSEBondData;			//ä¸Šè¯å›ºæ”¶å€ºåˆ¸ç›¸å…³å­—æ®µ
+	TDF_NB_DATA NBData;					//æ·±åœ³æ–°å€ºåˆ¸å­—æ®µ
 
-	int			nAskOrders[10];			//Î¯Âô¶©µ¥ÊýÁ¿
-	int			nBidOrders[10];			//Î¯Âò¶©µ¥ÊýÁ¿
+	int			nAskOrders[10];			//å§”å–è®¢å•æ•°é‡
+	int			nBidOrders[10];			//å§”ä¹°è®¢å•æ•°é‡
 };
 
-//Êý¾ÝÀàÐÍMSG_DATA_INDEX
+//æ•°æ®ç±»åž‹MSG_DATA_INDEX
 struct TDF_INDEX_DATA
 {
     char        szWindCode[32];         //Wind Code: AG1302.SHF 
-    char        szCode[32];             //Ô­Ê¼Code
-    int         nActionDay;             //ÒµÎñ·¢ÉúÈÕ(×ÔÈ»ÈÕ)
-    int         nTradingDay;            //½»Ò×ÈÕ
-    int         nTime;			        //Ê±¼ä(HHMMSSmmm)
-	int			nStatus;				//×´Ì¬£¬20151223ÐÂÔö
-    __int64		    nOpenIndex;		    //½ñ¿ªÅÌÖ¸Êý
-    __int64 	    nHighIndex;		    //×î¸ßÖ¸Êý
-    __int64 	    nLowIndex;		    //×îµÍÖ¸Êý
-    __int64 	    nLastIndex;		    //×îÐÂÖ¸Êý
-    __int64	    iTotalVolume;	        //²ÎÓë¼ÆËãÏàÓ¦Ö¸ÊýµÄ½»Ò×ÊýÁ¿
-    __int64	    iTurnover;		        //²ÎÓë¼ÆËãÏàÓ¦Ö¸ÊýµÄ³É½»½ð¶î
-    __int64		    nPreCloseIndex;	    //Ç°ÅÌÖ¸Êý
-	const TDF_CODE_INFO *  pCodeInfo;   //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
+    char        szCode[32];             //åŽŸå§‹Code
+    int         nActionDay;             //ä¸šåŠ¡å‘ç”Ÿæ—¥(è‡ªç„¶æ—¥)
+    int         nTradingDay;            //äº¤æ˜“æ—¥
+    int         nTime;			        //æ—¶é—´(HHMMSSmmm)
+	int			nStatus;				//çŠ¶æ€ï¼Œ20151223æ–°å¢ž
+    __int64		    nOpenIndex;		    //ä»Šå¼€ç›˜æŒ‡æ•°
+    __int64 	    nHighIndex;		    //æœ€é«˜æŒ‡æ•°
+    __int64 	    nLowIndex;		    //æœ€ä½ŽæŒ‡æ•°
+    __int64 	    nLastIndex;		    //æœ€æ–°æŒ‡æ•°
+    __int64	    iTotalVolume;	        //å‚ä¸Žè®¡ç®—ç›¸åº”æŒ‡æ•°çš„äº¤æ˜“æ•°é‡
+    __int64	    iTurnover;		        //å‚ä¸Žè®¡ç®—ç›¸åº”æŒ‡æ•°çš„æˆäº¤é‡‘é¢
+    __int64		    nPreCloseIndex;	    //å‰ç›˜æŒ‡æ•°
+	const TDF_CODE_INFO *  pCodeInfo;   //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
 };
-//Êý¾ÝÀàÐÍMSG_DATA_FUTURE
+//æ•°æ®ç±»åž‹MSG_DATA_FUTURE
 struct TDF_FUTURE_DATA
 {
     char        szWindCode[32];         //Wind Code: AG1302.SHF
-    char        szCode[32];             //Ô­Ê¼ Code
-    int         nActionDay;             //ÒµÎñ·¢ÉúÈÕ(×ÔÈ»ÈÕ)
-    int         nTradingDay;            //½»Ò×ÈÕ
-    int			nTime;					//Ê±¼ä(HHMMSSmmm)	
-    int			nStatus;				//×´Ì¬
-    __int64		iPreOpenInterest;		//×ò³Ö²Ö
-    __int64		nPreClose;				//×òÊÕÅÌ¼Û
-    __int64		nPreSettlePrice;		//×ò½áËã
-    __int64		nOpen;					//¿ªÅÌ¼Û	
-    __int64		nHigh;					//×î¸ß¼Û
-    __int64		nLow;					//×îµÍ¼Û
-    __int64		nMatch;					//×îÐÂ¼Û
-    __int64		iVolume;				//³É½»×ÜÁ¿
-    __int64		iTurnover;				//³É½»×Ü½ð¶î
-    __int64		iOpenInterest;			//³Ö²Ö×ÜÁ¿
-    __int64		nClose;					//½ñÊÕÅÌ
-    __int64		nSettlePrice;			//½ñ½áËã
-    __int64		nHighLimited;			//ÕÇÍ£¼Û
-    __int64		nLowLimited;			//µøÍ£¼Û
-    int			nPreDelta;			    //×òÐéÊµ¶È
-    int			nCurrDelta;             //½ñÐéÊµ¶È
-    __int64		nAskPrice[5];			//ÉêÂô¼Û
-    __int64		nAskVol[5];				//ÉêÂôÁ¿
-    __int64		nBidPrice[5];			//ÉêÂò¼Û
-    __int64		nBidVol[5];				//ÉêÂòÁ¿
+    char        szCode[32];             //åŽŸå§‹ Code
+    int         nActionDay;             //ä¸šåŠ¡å‘ç”Ÿæ—¥(è‡ªç„¶æ—¥)
+    int         nTradingDay;            //äº¤æ˜“æ—¥
+    int			nTime;					//æ—¶é—´(HHMMSSmmm)	
+    int			nStatus;				//çŠ¶æ€
+    __int64		iPreOpenInterest;		//æ˜¨æŒä»“
+    __int64		nPreClose;				//æ˜¨æ”¶ç›˜ä»·
+    __int64		nPreSettlePrice;		//æ˜¨ç»“ç®—
+    __int64		nOpen;					//å¼€ç›˜ä»·	
+    __int64		nHigh;					//æœ€é«˜ä»·
+    __int64		nLow;					//æœ€ä½Žä»·
+    __int64		nMatch;					//æœ€æ–°ä»·
+    __int64		iVolume;				//æˆäº¤æ€»é‡
+    __int64		iTurnover;				//æˆäº¤æ€»é‡‘é¢
+    __int64		iOpenInterest;			//æŒä»“æ€»é‡
+    __int64		nClose;					//ä»Šæ”¶ç›˜
+    __int64		nSettlePrice;			//ä»Šç»“ç®—
+    __int64		nHighLimited;			//æ¶¨åœä»·
+    __int64		nLowLimited;			//è·Œåœä»·
+    int			nPreDelta;			    //æ˜¨è™šå®žåº¦
+    int			nCurrDelta;             //ä»Šè™šå®žåº¦
+    __int64		nAskPrice[5];			//ç”³å–ä»·
+    __int64		nAskVol[5];				//ç”³å–é‡
+    __int64		nBidPrice[5];			//ç”³ä¹°ä»·
+    __int64		nBidVol[5];				//ç”³ä¹°é‡
 	//Add 20140605
-	__int64		nAuctionPrice;		    //²¨¶¯ÐÔÖÐ¶Ï²Î¿¼¼Û
-	int			nAuctionQty;		    //²¨¶¯ÐÔÖÐ¶Ï¼¯ºÏ¾º¼ÛÐéÄâÆ¥ÅäÁ¿	
-	__int64		nAvgPrice;              //Ö£ÉÌËùÆÚ»õ¾ù¼Û
-	const TDF_CODE_INFO *  pCodeInfo;   //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
-	char		chOriginalCode[12];	    //ÆÚ»õÔ­Ê¼´úÂë code:ag1302
+	__int64		nAuctionPrice;		    //æ³¢åŠ¨æ€§ä¸­æ–­å‚è€ƒä»·
+	int			nAuctionQty;		    //æ³¢åŠ¨æ€§ä¸­æ–­é›†åˆç«žä»·è™šæ‹ŸåŒ¹é…é‡	
+	__int64		nAvgPrice;              //éƒ‘å•†æ‰€æœŸè´§å‡ä»·
+	const TDF_CODE_INFO *  pCodeInfo;   //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
+	char		chOriginalCode[12];	    //æœŸè´§åŽŸå§‹ä»£ç  code:ag1302
 };
-//Êý¾ÝÀàÐÍMSG_DATA_TRANSACTION
+//æ•°æ®ç±»åž‹MSG_DATA_TRANSACTION
 struct TDF_TRANSACTION
 {
     char    szWindCode[32];             //Wind Code: AG1302.SHF
-    char    szCode[32];                 //Ô­Ê¼Code
-    int     nActionDay;                 //×ÔÈ»ÈÕ
-    int 	nTime;		                //³É½»Ê±¼ä(HHMMSSmmm)
-    int 	nIndex;		                //³É½»±àºÅ
-    __int64		nPrice;		            //³É½»¼Û¸ñ
-    int 	nVolume;	                //³É½»ÊýÁ¿
-    __int64		nTurnover;	            //³É½»½ð¶î
-    int     nBSFlag;                    //ÂòÂô·½Ïò(Âò£º'B', Âô£º'S', ²»Ã÷£º' ')
-    char    chOrderKind;                //³É½»Àà±ð
-    char    chFunctionCode;             //³É½»´úÂë
-    int	    nAskOrder;	                //½ÐÂô·½Î¯ÍÐÐòºÅ
-    int	    nBidOrder;	                //½ÐÂò·½Î¯ÍÐÐòºÅ
+    char    szCode[32];                 //åŽŸå§‹Code
+    int     nActionDay;                 //è‡ªç„¶æ—¥
+    int 	nTime;		                //æˆäº¤æ—¶é—´(HHMMSSmmm)
+    int 	nIndex;		                //æˆäº¤ç¼–å·
+    __int64		nPrice;		            //æˆäº¤ä»·æ ¼
+    int 	nVolume;	                //æˆäº¤æ•°é‡
+    __int64		nTurnover;	            //æˆäº¤é‡‘é¢
+    int     nBSFlag;                    //ä¹°å–æ–¹å‘(ä¹°ï¼š'B', å–ï¼š'S', ä¸æ˜Žï¼š' ')
+    char    chOrderKind;                //æˆäº¤ç±»åˆ«
+    char    chFunctionCode;             //æˆäº¤ä»£ç 
+    int	    nAskOrder;	                //å«å–æ–¹å§”æ‰˜åºå·
+    int	    nBidOrder;	                //å«ä¹°æ–¹å§”æ‰˜åºå·
 	int     nChannel;					//channel id
-	const TDF_CODE_INFO *  pCodeInfo;   //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
-	__int64		nBizIndex;				//ÒµÎñ±àºÅ
+	const TDF_CODE_INFO *  pCodeInfo;   //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
+	__int64		nBizIndex;				//ä¸šåŠ¡ç¼–å·
 };
-//Êý¾ÝÀàÐÍMSG_DATA_NB_TRANSACTION
+//æ•°æ®ç±»åž‹MSG_DATA_NB_TRANSACTION
 struct TDF_NBTRANSACTION
 {
-	TDF_TRANSACTION trans;			//Öð±Ê³É½»³£¹æÍ¨ÓÃ×Ö¶Î
+	TDF_TRANSACTION trans;			//é€ç¬”æˆäº¤å¸¸è§„é€šç”¨å­—æ®µ
 
-	int		nTypeID;				//ÐÐÇéÀà±ð, Éî½»Ëù¶ÔÓ¦MDStreamIDµÄÕûÊý
-	unsigned char uSettlPeriod;		//½áËãÖÜÆÚ
-	unsigned char uSettlType;		//½áËã·½Ê½
-	unsigned char uBidExecInstType;	//¾ºÂò³É½»·½Ê½
-	char	chSecondaryOrderID[16];	//¾ºÂò³¡´Î±àºÅ
-	__int64	nMarginPrice;			//´ï³É³É½»µÄ±ß¼Ê¼Û¸ñ
-	__int64 iNetPrice;				//³É½»¾»¼Û
-	__int64 iFullPrice;				//³É½»È«¼Û
-	__int64 iAccruedInterest;   	//Ó¦¸¶ÀûÏ¢
-	__int64 iYieldToMaturity;       //µ½ÆÚÊÕÒæÂÊ
-	__int64 iTradeAmount;			//³É½»½ð¶î
+	int		nTypeID;				//è¡Œæƒ…ç±»åˆ«, æ·±äº¤æ‰€å¯¹åº”MDStreamIDçš„æ•´æ•°
+	unsigned char uSettlPeriod;		//ç»“ç®—å‘¨æœŸ
+	unsigned char uSettlType;		//ç»“ç®—æ–¹å¼
+	unsigned char uBidExecInstType;	//ç«žä¹°æˆäº¤æ–¹å¼
+	char	chSecondaryOrderID[16];	//ç«žä¹°åœºæ¬¡ç¼–å·
+	__int64	nMarginPrice;			//è¾¾æˆæˆäº¤çš„è¾¹é™…ä»·æ ¼
+	__int64 iNetPrice;				//æˆäº¤å‡€ä»·
+	__int64 iFullPrice;				//æˆäº¤å…¨ä»·
+	__int64 iAccruedInterest;   	//åº”ä»˜åˆ©æ¯
+	__int64 iYieldToMaturity;       //åˆ°æœŸæ”¶ç›ŠçŽ‡
+	__int64 iTradeAmount;			//æˆäº¤é‡‘é¢
 };
-//Êý¾ÝÀàÐÍMSG_DATA_ORDER
+//æ•°æ®ç±»åž‹MSG_DATA_ORDER
 struct TDF_ORDER
 {
 	char    szWindCode[32]; //Wind Code: AG1302.SHF
-	char    szCode[32];     //Ô­Ê¼Code
-	int 	nActionDay;	    //Î¯ÍÐÈÕÆÚ(YYMMDD)
-	int 	nTime;			//Î¯ÍÐÊ±¼ä(HHMMSSmmm)
-	int 	nOrder;	        //Î¯ÍÐºÅ
-	__int64	nPrice;			//Î¯ÍÐ¼Û¸ñ
-	int 	nVolume;		//Î¯ÍÐÊýÁ¿
-	char    chOrderKind;	//Î¯ÍÐÀà±ð
-	char    chFunctionCode;	//Î¯ÍÐ´úÂë('B','S','C')
+	char    szCode[32];     //åŽŸå§‹Code
+	int 	nActionDay;	    //å§”æ‰˜æ—¥æœŸ(YYMMDD)
+	int 	nTime;			//å§”æ‰˜æ—¶é—´(HHMMSSmmm)
+	int 	nOrder;	        //å§”æ‰˜å·
+	__int64	nPrice;			//å§”æ‰˜ä»·æ ¼
+	int 	nVolume;		//å§”æ‰˜æ•°é‡
+	char    chOrderKind;	//å§”æ‰˜ç±»åˆ«
+	char    chFunctionCode;	//å§”æ‰˜ä»£ç ('B','S','C')
 	int     nChannel;		//channel id
-	const TDF_CODE_INFO *  pCodeInfo;     //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
-	__int64	nOrderOriNo;	//Ô­Ê¼¶©µ¥ºÅ
-	__int64	nBizIndex;		//ÒµÎñ±àºÅ
+	const TDF_CODE_INFO *  pCodeInfo;     //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
+	__int64	nOrderOriNo;	//åŽŸå§‹è®¢å•å·
+	__int64	nBizIndex;		//ä¸šåŠ¡ç¼–å·
 };
-//Êý¾ÝÀàÐÍMSG_DATA_NB_ORDER
+//æ•°æ®ç±»åž‹MSG_DATA_NB_ORDER
 struct TDF_NBORDER
 {
-	TDF_ORDER order;				//Öð±ÊÎ¯ÍÐ³£¹æÍ¨ÓÃ×Ö¶Î
+	TDF_ORDER order;				//é€ç¬”å§”æ‰˜å¸¸è§„é€šç”¨å­—æ®µ
 
-	int		nTypeID;				//ÐÐÇéÀà±ð, Éî½»Ëù¶ÔÓ¦MDStreamIDµÄÕûÊý
-	unsigned char uSettlPeriod;		//½áËãÖÜÆÚ
-	unsigned char uSettlType;		//½áËã·½Ê½
-	unsigned char uBidTransType;	//¾ºÂòÒµÎñÀà±ð
-	unsigned char uBidExecInstType;	//¾ºÂò³É½»·½Ê½
-	char	chSecondaryOrderID[16];	//¾ºÂò³¡´Î±àºÅ
-	char	chQuoteID[12];			//±¨¼ÛÏûÏ¢±àºÅ£¬½öÊÊÓÃÓÚµã»÷³É½»ÐÐÇé
-	char	chMemberID[8];			//½»Ò×ÉÌ´úÂë	
-	char	chInvestorType[4];		//½»Ò×Ö÷ÌåÀàÐÍ
-	char	chInvestorID[12];		//½»Ò×Ö÷Ìå´úÂë	
-	char	chInvestorName[124];	//¿Í»§Ãû³Æ
-	char	chTraderCode[12];		//½»Ò×Ô±´úÂë
-	char	chMemo[164];			//±¸×¢
-	__int64	nHighLimitPrice;		//¼Û¸ñÉÏÏÞ
-	__int64	nLowLimitPrice;			//¼Û¸ñÏÂÏÞ
-	__int64	nMinQty;				//×îµÍ³É½»ÊýÁ¿
-	int		nTradeDate;				//½»Ò×ÈÕÆÚ
+	int		nTypeID;				//è¡Œæƒ…ç±»åˆ«, æ·±äº¤æ‰€å¯¹åº”MDStreamIDçš„æ•´æ•°
+	unsigned char uSettlPeriod;		//ç»“ç®—å‘¨æœŸ
+	unsigned char uSettlType;		//ç»“ç®—æ–¹å¼
+	unsigned char uBidTransType;	//ç«žä¹°ä¸šåŠ¡ç±»åˆ«
+	unsigned char uBidExecInstType;	//ç«žä¹°æˆäº¤æ–¹å¼
+	char	chSecondaryOrderID[16];	//ç«žä¹°åœºæ¬¡ç¼–å·
+	char	chQuoteID[12];			//æŠ¥ä»·æ¶ˆæ¯ç¼–å·ï¼Œä»…é€‚ç”¨äºŽç‚¹å‡»æˆäº¤è¡Œæƒ…
+	char	chMemberID[8];			//äº¤æ˜“å•†ä»£ç 	
+	char	chInvestorType[4];		//äº¤æ˜“ä¸»ä½“ç±»åž‹
+	char	chInvestorID[12];		//äº¤æ˜“ä¸»ä½“ä»£ç 	
+	char	chInvestorName[124];	//å®¢æˆ·åç§°
+	char	chTraderCode[12];		//äº¤æ˜“å‘˜ä»£ç 
+	char	chMemo[164];			//å¤‡æ³¨
+	__int64	nHighLimitPrice;		//ä»·æ ¼ä¸Šé™
+	__int64	nLowLimitPrice;			//ä»·æ ¼ä¸‹é™
+	__int64	nMinQty;				//æœ€ä½Žæˆäº¤æ•°é‡
+	int		nTradeDate;				//äº¤æ˜“æ—¥æœŸ
 };
-//Êý¾ÝÀàÐÍMSG_DATA_ORDERQUEUE
+//æ•°æ®ç±»åž‹MSG_DATA_ORDERQUEUE
 struct TDF_ORDER_QUEUE
 {
 	char    szWindCode[32]; //Wind Code: AG1302.SHF 
-	char    szCode[32];     //Ô­Ê¼ Code
-	int     nActionDay;     //×ÔÈ»ÈÕ
-	int 	nTime;			//Ê±¼ä(HHMMSSmmm)
-	int     nSide;			//ÂòÂô·½Ïò('B':Bid 'A':Ask)
-	__int64		nPrice;		//Î¯ÍÐ¼Û¸ñ
-	int 	nOrders;		//¶©µ¥ÊýÁ¿
-	int 	nABItems;		//Ã÷Ï¸¸öÊý
-	int 	nABVolume[200];	//¶©µ¥Ã÷Ï¸
-	const TDF_CODE_INFO *  pCodeInfo;     //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
+	char    szCode[32];     //åŽŸå§‹ Code
+	int     nActionDay;     //è‡ªç„¶æ—¥
+	int 	nTime;			//æ—¶é—´(HHMMSSmmm)
+	int     nSide;			//ä¹°å–æ–¹å‘('B':Bid 'A':Ask)
+	__int64		nPrice;		//å§”æ‰˜ä»·æ ¼
+	int 	nOrders;		//è®¢å•æ•°é‡
+	int 	nABItems;		//æ˜Žç»†ä¸ªæ•°
+	int 	nABVolume[200];	//è®¢å•æ˜Žç»†
+	const TDF_CODE_INFO *  pCodeInfo;     //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
 };
 
-//³¡ÍâÆÚÈ¨£¬Êý¾ÝÀàÐÍMSG_DATA_OTC_OPTION
+//åœºå¤–æœŸæƒï¼Œæ•°æ®ç±»åž‹MSG_DATA_OTC_OPTION
 struct TDF_OTC_Option{
 
 	char  szWindCode[32];		//Wind Code: AG1302.SHF
-	char  szCode[32];			//Ô­Ê¼ Code
-	char  szWindType[8];		//windType : FUR.SHF(ÉÏÆÚËùÆÚ»õ)
+	char  szCode[32];			//åŽŸå§‹ Code
+	char  szWindType[8];		//windType : FUR.SHF(ä¸ŠæœŸæ‰€æœŸè´§)
 
-	char chOptionType;			// Å·Ê½ÃÀÊ½C1        ÈôÎªÅ·Ê½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°E¡±£»ÈôÎªÃÀÊ½ÆÚÈ¨£¬Ôò±¾×Ö¶ÎÎª¡°A¡±
-	char chCallOrPut;			// ÈÏ¹ºÈÏ¹ÁC1        ÈÏ¹º£¬Ôò±¾×Ö¶ÎÎª¡°C¡±£»ÈôÎªÈÏ¹Á£¬Ôò±¾×Ö¶ÎÎª¡°P¡±
-	__int64  iExercisePrice;	// ÆÚÈ¨ÐÐÈ¨¼Û,  
+	char chOptionType;			// æ¬§å¼ç¾Žå¼C1        è‹¥ä¸ºæ¬§å¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œEâ€ï¼›è‹¥ä¸ºç¾Žå¼æœŸæƒï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œAâ€
+	char chCallOrPut;			// è®¤è´­è®¤æ²½C1        è®¤è´­ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œCâ€ï¼›è‹¥ä¸ºè®¤æ²½ï¼Œåˆ™æœ¬å­—æ®µä¸ºâ€œPâ€
+	__int64  iExercisePrice;	// æœŸæƒè¡Œæƒä»·,  
 
-	int  nTime;					// ³É½»Ê±¼ä
-	int  nVolume;				// ³É½»Á¿
-	__int64 iMatch;				// ³É½»¼Û
-	__int64 iPreSettlement;		// Ç°ÈÕ½áËã¼Û
-	__int64 iSettlement;		// ½áËã¼Û
-	int nPrePosition;			// Ç°ÈÕ³Ö²ÖÁ¿
-	int nPosition;				// ³Ö²ÖÁ¿
-	__int64 iAskPrice;			// Î¯Âô¼Û¸ñ
-	__int64 iBidPrice;			// Î¯Âò¼Û¸ñ
-	int nAskVol;				// Î¯ÂôÊýÁ¿
-	int nBidVol;				// Î¯ÂòÊýÁ¿
-	const TDF_CODE_INFO *  pCodeInfo;     //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
+	int  nTime;					// æˆäº¤æ—¶é—´
+	int  nVolume;				// æˆäº¤é‡
+	__int64 iMatch;				// æˆäº¤ä»·
+	__int64 iPreSettlement;		// å‰æ—¥ç»“ç®—ä»·
+	__int64 iSettlement;		// ç»“ç®—ä»·
+	int nPrePosition;			// å‰æ—¥æŒä»“é‡
+	int nPosition;				// æŒä»“é‡
+	__int64 iAskPrice;			// å§”å–ä»·æ ¼
+	__int64 iBidPrice;			// å§”ä¹°ä»·æ ¼
+	int nAskVol;				// å§”å–æ•°é‡
+	int nBidVol;				// å§”ä¹°æ•°é‡
+	const TDF_CODE_INFO *  pCodeInfo;     //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
 };
 
-/******************************************************************* ¶©ÔÄÏà¹Ø *********************************************************************/
+/******************************************************************* è®¢é˜…ç›¸å…³ *********************************************************************/
 enum DATA_TYPE_FLAG
 {
-	DATA_TYPE_TRANSACTION = 0x2,           //Öð±Ê³É½»
-	DATA_TYPE_ORDER       = 0x4,           //Öð±ÊÎ¯ÍÐ
-	DATA_TYPE_ORDERQUEUE  = 0x8,           //Î¯ÍÐ¶ÓÁÐ 
-	DATA_TYPE_NONE = 0,                    //Ö»ÒªÐÐÇé£¬ÆäËû¶¼²»¶©ÔÄ£»¶©ÔÄ¶à¸öÀàÐÍDATA_TYPE_TRANSACTION | DATA_TYPE_ORDER | DATA_TYPE_ORDERQUEUE
+	DATA_TYPE_TRANSACTION = 0x2,           //é€ç¬”æˆäº¤
+	DATA_TYPE_ORDER       = 0x4,           //é€ç¬”å§”æ‰˜
+	DATA_TYPE_ORDERQUEUE  = 0x8,           //å§”æ‰˜é˜Ÿåˆ— 
+	DATA_TYPE_NONE = 0,                    //åªè¦è¡Œæƒ…ï¼Œå…¶ä»–éƒ½ä¸è®¢é˜…ï¼›è®¢é˜…å¤šä¸ªç±»åž‹DATA_TYPE_TRANSACTION | DATA_TYPE_ORDER | DATA_TYPE_ORDERQUEUE
 };
 enum SUBSCRIPTION_STYLE
 {
-	SUBSCRIPTION_FULL = 3,                //È«ÊÐ³¡¶©ÔÄ
-	SUBSCRIPTION_SET=0,                   //ÉèÖÃÎª¶©ÔÄÁÐ±íÖÐ¹ÉÆ±£¬
-	SUBSCRIPTION_ADD=1,                   //Ôö¼Ó¶©ÔÄÁÐ±íÖÐ¹ÉÆ±
-	SUBSCRIPTION_DEL=2,                   //É¾³ýÁÐ±íÖÐµÄ¶©ÔÄ
+	SUBSCRIPTION_FULL = 3,                //å…¨å¸‚åœºè®¢é˜…
+	SUBSCRIPTION_SET=0,                   //è®¾ç½®ä¸ºè®¢é˜…åˆ—è¡¨ä¸­è‚¡ç¥¨ï¼Œ
+	SUBSCRIPTION_ADD=1,                   //å¢žåŠ è®¢é˜…åˆ—è¡¨ä¸­è‚¡ç¥¨
+	SUBSCRIPTION_DEL=2,                   //åˆ é™¤åˆ—è¡¨ä¸­çš„è®¢é˜…
 };
 enum CODE_TYPE_FLAG
 {
@@ -666,83 +666,83 @@ enum CODE_TYPE_FLAG
 	CODE_TYPE_OPTIONS = 0x20,
 };
 
-/******************************************************************* ÅäÖÃ *********************************************************************/
-//»·¾³ÉèÖÃ£¬ÔÚµ÷ÓÃTDF_OpenÖ®Ç°ÉèÖÃk
+/******************************************************************* é…ç½® *********************************************************************/
+//çŽ¯å¢ƒè®¾ç½®ï¼Œåœ¨è°ƒç”¨TDF_Openä¹‹å‰è®¾ç½®k
 enum TDF_ENVIRON_SETTING
 {
-	TDF_ENVIRON_HEART_BEAT_INTERVAL,		//Heart Beat¼ä¸ô£¨ÃëÊý£©, ÈôÖµÎª0Ôò±íÊ¾Ä¬ÈÏÖµ10ÃëÖÓ
-	TDF_ENVIRON_MISSED_BEART_COUNT,			//Èç¹ûÃ»ÓÐÊÕµ½ÐÄÌø´ÎÊý³¬¹ýÕâ¸öÖµ£¬ÇÒÃ»ÊÕµ½ÆäËûÈÎºÎÊý¾Ý£¬ÔòÅÐ¶ÏÎªµôÏß£¬ÈôÖµ0ÎªÄ¬ÈÏ´ÎÊý2´Î
-	TDF_ENVIRON_OPEN_TIME_OUT,				//ÔÚµ÷TDF_OpenÆÚ¼ä£¬½ÓÊÕÃ¿Ò»¸öÊý¾Ý°üµÄ³¬Ê±Ê±¼ä£¨ÃëÊý£¬²»ÊÇTDF_Openµ÷ÓÃ×ÜµÄ×î´óµÈ´ýÊ±¼ä£©£¬ÈôÖµÎª0ÔòÄ¬ÈÏ30Ãë
-	TDF_ENVIRON_USE_PACK_OVER,				//ÍøÂç°ü½áÊøÏûÏ¢
-	TDF_ENVIRON_HEART_BEAT_FLAG,			//ÐÄÌøÊý¾Ý·¢ËÍ·½Ê½(0: È¡Ïû·¢ËÍÐÄÌø°ü 1£ºÃ»ÓÐÊý¾Ý·¢ËÍµÄÊ±ºò·¢ËÍÐÄÌøÊý¾Ý£¬2£ºÓÐ¹æÂÉ·¢ËÍÐÄÌøÊý¾Ý)
-	TDF_ENVIRON_SOURCE_MODE,				//Ë«»îÊý¾ÝÔ´Ä£Ê½,Öµ²Î¿¼TDF_SOURCE_SETTINGÃ¶¾ÙÀà
-	TDF_ENVIRON_SOURCE_MODE_VALUE,			//Ë«»îÊý¾ÝÔ´Ä£Ê½ÏÂ²ÎÊýµÄÖµ
-	TDF_ENVIRON_OUT_LOG,					//1¡¢µ±Ç°Ä¿Â¼ÏÂ´´½¨log£¬·ñÔòÔÚµ±Ç°Â·¾¶ÓÐlogÎÄ¼þ¼ÐÊ±´´½¨µ½logÎÄ¼þ¼ÐÖÐ
-	TDF_ENVIRON_SNAPSHOT_ENENT,				//1¡¢·¢ËÍ¿ìÕÕÊÂ¼þºÍÇåÅÌÍ¨Öªµ«¿ìÕÕ²»·¢ËÍµ½»Øµ÷º¯Êý£¬·ñÔòÖ±½Ó·¢ËÍ¿ìÕÕµ½»Øµ÷º¯Êý£¬ÎÞ¿ìÕÕÍ¨Öª, ²âÊÔÖÐ
-	TDF_ENVIRON_ORIGINAL_VOL,				//Ô­Ê¼½á¹¹ÓÐÐ§£¬1¡¢Ö¸Êý³É½»Á¿ºÍ³É½»¶îµÄµ¥Î»Îª¹ÉºÍÔª£¬Ä¬ÈÏÎª100¹ÉºÍ100Ôª
-	TDF_ENVIRON_BREAKPOINT,					//1.ÍøÂç¶Ï¿ªºó¶ÏµãÐø´«£¬else.ÇëÇó×îÐÂ¿ìÕÕ
-	TDF_ENVIRON_SWITCH_SAME,				//switchË«»îÄ£Ê½ÏÂÓÐÐ§£¬±£Ö¤Ò»¸ö½»Ò×ÈÕµÄÇ°ÊÕºÍ¿ªÅÌÖ»ÓÐÒ»¸öÓÐÐ§Öµ
-	TDF_ENVIRON_DISTRIBUTION,				//1.Á¬½ÓµÄÉÏÓÎÊÇTDF·Ö·¢·þÎñ£¬Ä¬ÈÏÎª0±íÊ¾ÉÏÓÎÎªTDFServer·þÎñ
-	TDF_ENVIRON_JNI_MAX_SIZE,				//JavaÏûÏ¢¶ÓÁÐ´óÐ¡£¬Ä¬ÈÏÎª20Íò£¬0ÎªÎÞÏÞÖÆ
+	TDF_ENVIRON_HEART_BEAT_INTERVAL,		//Heart Beaté—´éš”ï¼ˆç§’æ•°ï¼‰, è‹¥å€¼ä¸º0åˆ™è¡¨ç¤ºé»˜è®¤å€¼10ç§’é’Ÿ
+	TDF_ENVIRON_MISSED_BEART_COUNT,			//å¦‚æžœæ²¡æœ‰æ”¶åˆ°å¿ƒè·³æ¬¡æ•°è¶…è¿‡è¿™ä¸ªå€¼ï¼Œä¸”æ²¡æ”¶åˆ°å…¶ä»–ä»»ä½•æ•°æ®ï¼Œåˆ™åˆ¤æ–­ä¸ºæŽ‰çº¿ï¼Œè‹¥å€¼0ä¸ºé»˜è®¤æ¬¡æ•°2æ¬¡
+	TDF_ENVIRON_OPEN_TIME_OUT,				//åœ¨è°ƒTDF_OpenæœŸé—´ï¼ŒæŽ¥æ”¶æ¯ä¸€ä¸ªæ•°æ®åŒ…çš„è¶…æ—¶æ—¶é—´ï¼ˆç§’æ•°ï¼Œä¸æ˜¯TDF_Openè°ƒç”¨æ€»çš„æœ€å¤§ç­‰å¾…æ—¶é—´ï¼‰ï¼Œè‹¥å€¼ä¸º0åˆ™é»˜è®¤30ç§’
+	TDF_ENVIRON_USE_PACK_OVER,				//ç½‘ç»œåŒ…ç»“æŸæ¶ˆæ¯
+	TDF_ENVIRON_HEART_BEAT_FLAG,			//å¿ƒè·³æ•°æ®å‘é€æ–¹å¼(0: å–æ¶ˆå‘é€å¿ƒè·³åŒ… 1ï¼šæ²¡æœ‰æ•°æ®å‘é€çš„æ—¶å€™å‘é€å¿ƒè·³æ•°æ®ï¼Œ2ï¼šæœ‰è§„å¾‹å‘é€å¿ƒè·³æ•°æ®)
+	TDF_ENVIRON_SOURCE_MODE,				//åŒæ´»æ•°æ®æºæ¨¡å¼,å€¼å‚è€ƒTDF_SOURCE_SETTINGæžšä¸¾ç±»
+	TDF_ENVIRON_SOURCE_MODE_VALUE,			//åŒæ´»æ•°æ®æºæ¨¡å¼ä¸‹å‚æ•°çš„å€¼
+	TDF_ENVIRON_OUT_LOG,					//1ã€å½“å‰ç›®å½•ä¸‹åˆ›å»ºlogï¼Œå¦åˆ™åœ¨å½“å‰è·¯å¾„æœ‰logæ–‡ä»¶å¤¹æ—¶åˆ›å»ºåˆ°logæ–‡ä»¶å¤¹ä¸­
+	TDF_ENVIRON_SNAPSHOT_ENENT,				//1ã€å‘é€å¿«ç…§äº‹ä»¶å’Œæ¸…ç›˜é€šçŸ¥ä½†å¿«ç…§ä¸å‘é€åˆ°å›žè°ƒå‡½æ•°ï¼Œå¦åˆ™ç›´æŽ¥å‘é€å¿«ç…§åˆ°å›žè°ƒå‡½æ•°ï¼Œæ— å¿«ç…§é€šçŸ¥, æµ‹è¯•ä¸­
+	TDF_ENVIRON_ORIGINAL_VOL,				//åŽŸå§‹ç»“æž„æœ‰æ•ˆï¼Œ1ã€æŒ‡æ•°æˆäº¤é‡å’Œæˆäº¤é¢çš„å•ä½ä¸ºè‚¡å’Œå…ƒï¼Œé»˜è®¤ä¸º100è‚¡å’Œ100å…ƒ
+	TDF_ENVIRON_BREAKPOINT,					//1.ç½‘ç»œæ–­å¼€åŽæ–­ç‚¹ç»­ä¼ ï¼Œelse.è¯·æ±‚æœ€æ–°å¿«ç…§
+	TDF_ENVIRON_SWITCH_SAME,				//switchåŒæ´»æ¨¡å¼ä¸‹æœ‰æ•ˆï¼Œä¿è¯ä¸€ä¸ªäº¤æ˜“æ—¥çš„å‰æ”¶å’Œå¼€ç›˜åªæœ‰ä¸€ä¸ªæœ‰æ•ˆå€¼
+	TDF_ENVIRON_DISTRIBUTION,				//1.è¿žæŽ¥çš„ä¸Šæ¸¸æ˜¯TDFåˆ†å‘æœåŠ¡ï¼Œé»˜è®¤ä¸º0è¡¨ç¤ºä¸Šæ¸¸ä¸ºTDFServeræœåŠ¡
+	TDF_ENVIRON_JNI_MAX_SIZE,				//Javaæ¶ˆæ¯é˜Ÿåˆ—å¤§å°ï¼Œé»˜è®¤ä¸º20ä¸‡ï¼Œ0ä¸ºæ— é™åˆ¶
 };
-//Ë«»îÄ£Ê½ÉèÖÃ
+//åŒæ´»æ¨¡å¼è®¾ç½®
 enum TDF_SOURCE_SETTING
 {
-	TDF_SOURCE_MERGE,						//ºÏ²¢Ä£Ê½£¬Ñ¡ÔñÊý¾Ý¸ü¿ìµÄÒ»Â·Êý¾ÝÔ´Êý¾Ý
-	TDF_SOURCE_SWITCH,						//ÑÓ³ÙÇÐ»»Ä£Ê½£¬ÊÕµ½Êý¾Ý¼ä¸ô³¬¹ýÉè¶¨ãÐÖµ£¬ÔòÇÐ»»£¬Ä¬ÈÏÖµÎª5000ºÁÃë£¬ÉèÖÃÍ¨¹ýTDF_ENVIRON_SOURCE_MODE_VALUE±äÁ¿ÉèÖÃ
+	TDF_SOURCE_MERGE,						//åˆå¹¶æ¨¡å¼ï¼Œé€‰æ‹©æ•°æ®æ›´å¿«çš„ä¸€è·¯æ•°æ®æºæ•°æ®
+	TDF_SOURCE_SWITCH,						//å»¶è¿Ÿåˆ‡æ¢æ¨¡å¼ï¼Œæ”¶åˆ°æ•°æ®é—´éš”è¶…è¿‡è®¾å®šé˜ˆå€¼ï¼Œåˆ™åˆ‡æ¢ï¼Œé»˜è®¤å€¼ä¸º5000æ¯«ç§’ï¼Œè®¾ç½®é€šè¿‡TDF_ENVIRON_SOURCE_MODE_VALUEå˜é‡è®¾ç½®
 };
-//µ¥·þÎñÆ÷ÅäÖÃ£¨¿ÉÓÃ¶à·þÎñÆ÷ÊµÏÖ£¬±£Áôµ¥·þÎñÆ÷ÅäÖÃÒÔ¼æÈÝ¾ÉAPIÊ¹ÓÃ·½·¨£©
-//Ïà±È¾ÉAPI£¬ÉÙÁË£ºnReconnectCount¡¢nReconnectGap¡¢nProtocol£¬nDate
+//å•æœåŠ¡å™¨é…ç½®ï¼ˆå¯ç”¨å¤šæœåŠ¡å™¨å®žçŽ°ï¼Œä¿ç•™å•æœåŠ¡å™¨é…ç½®ä»¥å…¼å®¹æ—§APIä½¿ç”¨æ–¹æ³•ï¼‰
+//ç›¸æ¯”æ—§APIï¼Œå°‘äº†ï¼šnReconnectCountã€nReconnectGapã€nProtocolï¼ŒnDate
 struct TDF_OPEN_SETTING
 {
     char szIp[32];
     char szPort[8];
     char szUser[64];
     char szPwd[64];
-	//»Øµ÷º¯ÊýÉèÖÃ
-	TDF_DataMsgHandler pfnMsgHandler;			//Êý¾ÝÏûÏ¢´¦Àí»Øµ÷
-	TDF_SystemMsgHandler pfnSysMsgNotify;		//ÏµÍ³ÏûÏ¢Í¨Öª»Øµ÷ 
+	//å›žè°ƒå‡½æ•°è®¾ç½®
+	TDF_DataMsgHandler pfnMsgHandler;			//æ•°æ®æ¶ˆæ¯å¤„ç†å›žè°ƒ
+	TDF_SystemMsgHandler pfnSysMsgNotify;		//ç³»ç»Ÿæ¶ˆæ¯é€šçŸ¥å›žè°ƒ 
 
-	//¶©ÔÄÉèÖÃ									--×¢Òâ£º¶©ÔÄÊÇÊÐ³¡¶ÀÁ¢µÄ£¡¶ÔÓÚÃ¿¸öÊÐ³¡±ØÐë¶©ÔÄÊÐ³¡»ò´úÂë£¬Ö»¶©ÔÄÊÐ³¡£¬Ôò·¢ËÍ´ËÊÐ³¡È«²¿´úÂë¡£
-	const char* szMarkets;						// ÊÐ³¡¶©ÔÄ(Ö÷)£¡ÀýÈç"SZ-2-0;SH-2-0;SHF-1-0"£¬ÐèÒª¶©ÔÄµÄÊÐ³¡ÁÐ±í£¬ÒÔ¡°;¡±·Ö¸î
-	const char* szResvMarkets;					// ÊÐ³¡¶©ÔÄ(È±)£¡ÀýÈç"SZ-2-0;SH-2-0;SHF-1-0"£¬ÐèÒª¶©ÔÄµÄÊÐ³¡ÁÐ±í£¬ÒÔ¡°;¡±·Ö¸î£¬½¨ÒéÎª""	
-	const char* szSubScriptions;				// ´úÂë¶©ÔÄ,ÀýÈç"600000.sh;ag.shf;000001.sz"£¬ÐèÒª¶©ÔÄµÄ¹ÉÆ±(µ¥¸ö¹ÉÆ±¸ñÊ½ÎªÔ­Ê¼Code+.+ÊÐ³¡£¬Èç999999.SH)£¬ÒÔ¡°;¡±·Ö¸î£¬Îª¿ÕÔò¶©ÔÄÈ«ÊÐ³¡
-	unsigned int nTypeFlags;					// Êý¾ÝÀàÐÍ¶©ÔÄ£¡Ö§³Ö¶©ÔÄ3ÖÖÀàÐÍTRANSACTION;ORDER;ORDERQUEUE¡£ £¡×¢Òâ£ºÐÐÇéÊý¾ÝÈÎºÎÊ±ºò¶¼·¢ËÍ£¬²»ÐèÒª¶©ÔÄ! ²Î¼ûenum DATA_TYPE_FLAG
+	//è®¢é˜…è®¾ç½®									--æ³¨æ„ï¼šè®¢é˜…æ˜¯å¸‚åœºç‹¬ç«‹çš„ï¼å¯¹äºŽæ¯ä¸ªå¸‚åœºå¿…é¡»è®¢é˜…å¸‚åœºæˆ–ä»£ç ï¼Œåªè®¢é˜…å¸‚åœºï¼Œåˆ™å‘é€æ­¤å¸‚åœºå…¨éƒ¨ä»£ç ã€‚
+	const char* szMarkets;						// å¸‚åœºè®¢é˜…(ä¸»)ï¼ä¾‹å¦‚"SZ-2-0;SH-2-0;SHF-1-0"ï¼Œéœ€è¦è®¢é˜…çš„å¸‚åœºåˆ—è¡¨ï¼Œä»¥â€œ;â€åˆ†å‰²
+	const char* szResvMarkets;					// å¸‚åœºè®¢é˜…(ç¼º)ï¼ä¾‹å¦‚"SZ-2-0;SH-2-0;SHF-1-0"ï¼Œéœ€è¦è®¢é˜…çš„å¸‚åœºåˆ—è¡¨ï¼Œä»¥â€œ;â€åˆ†å‰²ï¼Œå»ºè®®ä¸º""	
+	const char* szSubScriptions;				// ä»£ç è®¢é˜…,ä¾‹å¦‚"600000.sh;ag.shf;000001.sz"ï¼Œéœ€è¦è®¢é˜…çš„è‚¡ç¥¨(å•ä¸ªè‚¡ç¥¨æ ¼å¼ä¸ºåŽŸå§‹Code+.+å¸‚åœºï¼Œå¦‚999999.SH)ï¼Œä»¥â€œ;â€åˆ†å‰²ï¼Œä¸ºç©ºåˆ™è®¢é˜…å…¨å¸‚åœº
+	unsigned int nTypeFlags;					// æ•°æ®ç±»åž‹è®¢é˜…ï¼æ”¯æŒè®¢é˜…3ç§ç±»åž‹TRANSACTION;ORDER;ORDERQUEUEã€‚ ï¼æ³¨æ„ï¼šè¡Œæƒ…æ•°æ®ä»»ä½•æ—¶å€™éƒ½å‘é€ï¼Œä¸éœ€è¦è®¢é˜…! å‚è§enum DATA_TYPE_FLAG
 
-	unsigned int nTime;							//Îª0ÔòÇëÇóÊµÊ±ÐÐÇé£¬(0xffffffff´ÓÍ·ÇëÇó,´ý¿ª·¢)
-	unsigned int nConnectionID;					//Á¬½ÓID£¬Á¬½Ó»Øµ÷ÏûÏ¢µÄ¸½¼Ó½á¹¹ TDF_CONNECT_RESULTÖÐ »á°üº¬Õâ¸öID
-	unsigned int nCodeTypeFlags;				//´úÂëÀàÐÍ¶©ÔÄ£¡Ö§³Ö¶©ÔÄCODE_TYPE_FLAG±íÊ¾µÄÀàÐÍ£¬¶àÖÖÀàÐÍÊ¹ÓÃ'|'½øÐÐ¼ÆËãºóÌîÈë,ÓënTypeFlags¼ÆËã·½Ê½ÏàÍ¬
+	unsigned int nTime;							//ä¸º0åˆ™è¯·æ±‚å®žæ—¶è¡Œæƒ…ï¼Œ(0xffffffffä»Žå¤´è¯·æ±‚,å¾…å¼€å‘)
+	unsigned int nConnectionID;					//è¿žæŽ¥IDï¼Œè¿žæŽ¥å›žè°ƒæ¶ˆæ¯çš„é™„åŠ ç»“æž„ TDF_CONNECT_RESULTä¸­ ä¼šåŒ…å«è¿™ä¸ªID
+	unsigned int nCodeTypeFlags;				//ä»£ç ç±»åž‹è®¢é˜…ï¼æ”¯æŒè®¢é˜…CODE_TYPE_FLAGè¡¨ç¤ºçš„ç±»åž‹ï¼Œå¤šç§ç±»åž‹ä½¿ç”¨'|'è¿›è¡Œè®¡ç®—åŽå¡«å…¥,ä¸ŽnTypeFlagsè®¡ç®—æ–¹å¼ç›¸åŒ
 };
 
-//¶à·þÎñÆ÷ÅäÖÃ
+//å¤šæœåŠ¡å™¨é…ç½®
 struct TDF_SERVER_INFO
 {
 	char szIp[32];		//IP
-	char szPort[8];		//¶Ë¿Ú
-	char szUser[64];	//ÓÃ»§Ãû
-	char szPwd[64];		//ÃÜÂë
+	char szPort[8];		//ç«¯å£
+	char szUser[64];	//ç”¨æˆ·å
+	char szPwd[64];		//å¯†ç 
 };
 struct TDF_OPEN_SETTING_EXT
 {
-	//·þÎñÆ÷ÉèÖÃ
-	TDF_SERVER_INFO	siServer[MAXSERVER];	//·þÎñÆ÷ÐÅÏ¢
-	unsigned int nServerNum;				//·þÎñÆ÷ÊýÁ¿
-	//»Øµ÷º¯ÊýÉèÖÃ
-	TDF_DataMsgHandler pfnMsgHandler;       //Êý¾ÝÏûÏ¢´¦Àí»Øµ÷
-	TDF_SystemMsgHandler pfnSysMsgNotify;   //ÏµÍ³ÏûÏ¢Í¨Öª»Øµ÷
+	//æœåŠ¡å™¨è®¾ç½®
+	TDF_SERVER_INFO	siServer[MAXSERVER];	//æœåŠ¡å™¨ä¿¡æ¯
+	unsigned int nServerNum;				//æœåŠ¡å™¨æ•°é‡
+	//å›žè°ƒå‡½æ•°è®¾ç½®
+	TDF_DataMsgHandler pfnMsgHandler;       //æ•°æ®æ¶ˆæ¯å¤„ç†å›žè°ƒ
+	TDF_SystemMsgHandler pfnSysMsgNotify;   //ç³»ç»Ÿæ¶ˆæ¯é€šçŸ¥å›žè°ƒ
 	
-	//unsigned int nProtocol;               //Ð­ÒéºÅ£¬Îª0ÔòÎªÄ¬ÈÏ£¬»òÕß0x6001
-	//¶©ÔÄÉèÖÃ                              --×¢Òâ£º¶©ÔÄÊÇÊÐ³¡¶ÀÁ¢µÄ£¡¶ÔÓÚÃ¿¸öÊÐ³¡±ØÐë¶©ÔÄÊÐ³¡»ò´úÂë£¬Ö»¶©ÔÄÊÐ³¡£¬Ôò·¢ËÍ´ËÊÐ³¡È«²¿´úÂë¡£
-	const char* szMarkets;					// ÊÐ³¡¶©ÔÄ(Ö÷)£¡ÀýÈç"SZ-2-0;SH-1-1;"£¬ÐèÒª¶©ÔÄµÄÊÐ³¡ÁÐ±í£¬ÒÔ¡°;¡±·Ö¸î
-	const char* szResvMarkets;              // ÊÐ³¡¶©ÔÄ(È±)£¡ÀýÈç"SZ-2-0;SH-1-1;"£¬ÐèÒª¶©ÔÄµÄÊÐ³¡ÁÐ±í£¬ÒÔ¡°;¡±·Ö¸î,½¨ÒéÎª""
-	const char* szSubScriptions;            // ´úÂë¶©ÔÄ,ÀýÈç"600000.sh;ag.shf;000001.sz"£¬ÐèÒª¶©ÔÄµÄ¹ÉÆ±(µ¥¸ö¹ÉÆ±¸ñÊ½ÎªÔ­Ê¼Code+.+ÊÐ³¡£¬Èç999999.SH)£¬ÒÔ¡°;¡±·Ö¸î£¬Îª¿ÕÔò¶©ÔÄÈ«ÊÐ³¡
-	unsigned int nTypeFlags;                // Êý¾ÝÀàÐÍ¶©ÔÄ£¡Ö§³Ö¶©ÔÄ3ÖÖÀàÐÍTRANSACTION;ORDER;ORDERQUEUE¡£ £¡×¢Òâ£ºÐÐÇéÊý¾ÝÈÎºÎÊ±ºò¶¼·¢ËÍ£¬²»ÐèÒª¶©ÔÄ! ²Î¼ûenum DATA_TYPE_FLAG
+	//unsigned int nProtocol;               //åè®®å·ï¼Œä¸º0åˆ™ä¸ºé»˜è®¤ï¼Œæˆ–è€…0x6001
+	//è®¢é˜…è®¾ç½®                              --æ³¨æ„ï¼šè®¢é˜…æ˜¯å¸‚åœºç‹¬ç«‹çš„ï¼å¯¹äºŽæ¯ä¸ªå¸‚åœºå¿…é¡»è®¢é˜…å¸‚åœºæˆ–ä»£ç ï¼Œåªè®¢é˜…å¸‚åœºï¼Œåˆ™å‘é€æ­¤å¸‚åœºå…¨éƒ¨ä»£ç ã€‚
+	const char* szMarkets;					// å¸‚åœºè®¢é˜…(ä¸»)ï¼ä¾‹å¦‚"SZ-2-0;SH-1-1;"ï¼Œéœ€è¦è®¢é˜…çš„å¸‚åœºåˆ—è¡¨ï¼Œä»¥â€œ;â€åˆ†å‰²
+	const char* szResvMarkets;              // å¸‚åœºè®¢é˜…(ç¼º)ï¼ä¾‹å¦‚"SZ-2-0;SH-1-1;"ï¼Œéœ€è¦è®¢é˜…çš„å¸‚åœºåˆ—è¡¨ï¼Œä»¥â€œ;â€åˆ†å‰²,å»ºè®®ä¸º""
+	const char* szSubScriptions;            // ä»£ç è®¢é˜…,ä¾‹å¦‚"600000.sh;ag.shf;000001.sz"ï¼Œéœ€è¦è®¢é˜…çš„è‚¡ç¥¨(å•ä¸ªè‚¡ç¥¨æ ¼å¼ä¸ºåŽŸå§‹Code+.+å¸‚åœºï¼Œå¦‚999999.SH)ï¼Œä»¥â€œ;â€åˆ†å‰²ï¼Œä¸ºç©ºåˆ™è®¢é˜…å…¨å¸‚åœº
+	unsigned int nTypeFlags;                // æ•°æ®ç±»åž‹è®¢é˜…ï¼æ”¯æŒè®¢é˜…3ç§ç±»åž‹TRANSACTION;ORDER;ORDERQUEUEã€‚ ï¼æ³¨æ„ï¼šè¡Œæƒ…æ•°æ®ä»»ä½•æ—¶å€™éƒ½å‘é€ï¼Œä¸éœ€è¦è®¢é˜…! å‚è§enum DATA_TYPE_FLAG
 
-	unsigned int nTime;                     //Îª0ÔòÇëÇóÊµÊ±ÐÐÇé£¬Îª0xffffffff´ÓÍ·ÇëÇó
-	unsigned int nConnectionID;             //Á¬½ÓID£¬Á¬½Ó»Øµ÷ÏûÏ¢µÄ¸½¼Ó½á¹¹ TDF_CONNECT_RESULTÖÐ »á°üº¬Õâ¸öID£¬ÏûÏ¢Í·Ò²»á°üº¬¸ÃID
-	unsigned int nCodeTypeFlags;			//´úÂëÀàÐÍ¶©ÔÄ£¡Ö§³Ö¶©ÔÄCODE_TYPE_FLAG±íÊ¾µÄÀàÐÍ£¬¶àÖÖÀàÐÍÊ¹ÓÃ'|'½øÐÐ¼ÆËãºóÌîÈë,ÓënTypeFlags¼ÆËã·½Ê½ÏàÍ¬
+	unsigned int nTime;                     //ä¸º0åˆ™è¯·æ±‚å®žæ—¶è¡Œæƒ…ï¼Œä¸º0xffffffffä»Žå¤´è¯·æ±‚
+	unsigned int nConnectionID;             //è¿žæŽ¥IDï¼Œè¿žæŽ¥å›žè°ƒæ¶ˆæ¯çš„é™„åŠ ç»“æž„ TDF_CONNECT_RESULTä¸­ ä¼šåŒ…å«è¿™ä¸ªIDï¼Œæ¶ˆæ¯å¤´ä¹Ÿä¼šåŒ…å«è¯¥ID
+	unsigned int nCodeTypeFlags;			//ä»£ç ç±»åž‹è®¢é˜…ï¼æ”¯æŒè®¢é˜…CODE_TYPE_FLAGè¡¨ç¤ºçš„ç±»åž‹ï¼Œå¤šç§ç±»åž‹ä½¿ç”¨'|'è¿›è¡Œè®¡ç®—åŽå¡«å…¥,ä¸ŽnTypeFlagsè®¡ç®—æ–¹å¼ç›¸åŒ
 };
-//´úÀí·þÎñÆ÷ÉèÖÃ
+//ä»£ç†æœåŠ¡å™¨è®¾ç½®
 enum TDF_PROXY_TYPE
 {
 	TDF_PROXY_SOCK4,
@@ -752,117 +752,117 @@ enum TDF_PROXY_TYPE
 };
 struct TDF_PROXY_SETTING
 {
-	TDF_PROXY_TYPE nProxyType;	//´úÀíÀàÐÍ
-	char szProxyHostIp[32];		//´úÀíIP
-	char szProxyPort[8];		//´úÀí¶Ë¿Ú
-	char szProxyUser[32];		//´úÀíÓÃ»§Ãû
-	char szProxyPwd[32];		//´úÀíÃÜÂë
+	TDF_PROXY_TYPE nProxyType;	//ä»£ç†ç±»åž‹
+	char szProxyHostIp[32];		//ä»£ç†IP
+	char szProxyPort[8];		//ä»£ç†ç«¯å£
+	char szProxyUser[32];		//ä»£ç†ç”¨æˆ·å
+	char szProxyPwd[32];		//ä»£ç†å¯†ç 
 };
-//×Ü°ü£¬Á÷Á¿£¬Á¬½Ó´ÎÊý£¬×îºóÒ»´ÎÁ¬½ÓÊ±¼ä+ÈÕÆÚ
+//æ€»åŒ…ï¼Œæµé‡ï¼Œè¿žæŽ¥æ¬¡æ•°ï¼Œæœ€åŽä¸€æ¬¡è¿žæŽ¥æ—¶é—´+æ—¥æœŸ
 struct ConStatInfo
 {
-	__int64  iTotalPacks;		//×Ü°ü
-	__int64  iTotalTraffic;		//×ÜÁ÷Á¿
-	int      nToalConTimes;		//Á¬½Ó´ÎÊý
-	__int64  ilastConTime;		//×îºóÒ»´ÎÁ¬½ÓÊ±¼ä+ÈÕÆÚ
+	__int64  iTotalPacks;		//æ€»åŒ…
+	__int64  iTotalTraffic;		//æ€»æµé‡
+	int      nToalConTimes;		//è¿žæŽ¥æ¬¡æ•°
+	__int64  ilastConTime;		//æœ€åŽä¸€æ¬¡è¿žæŽ¥æ—¶é—´+æ—¥æœŸ
 };
 
-//´ò¿ª²Î¿¼Êý¾Ý·þÎñ
+//æ‰“å¼€å‚è€ƒæ•°æ®æœåŠ¡
 struct TDF_OPEN_REFDATA_SETTING
 {
 	char szIp[32];
 	char szPort[8];
 	char szUser[64];
 	char szPwd[64];
-	//»Øµ÷º¯ÊýÉèÖÃ
-	TDF_RefDataMsgHandler pfnRefDataHandler;       //²Î¿¼Êý¾ÝÏûÏ¢´¦Àí»Øµ÷
+	//å›žè°ƒå‡½æ•°è®¾ç½®
+	TDF_RefDataMsgHandler pfnRefDataHandler;       //å‚è€ƒæ•°æ®æ¶ˆæ¯å¤„ç†å›žè°ƒ
 };
 
-//»¦¸ÛÍ¨¡¢Éî¸ÛÍ¨µÈ
+//æ²ªæ¸¯é€šã€æ·±æ¸¯é€šç­‰
 struct TDF_NON_MD_DATA
 {
-	int nItemSize;					//·ÇÐÐÇéÏûÏ¢´óÐ¡
-	int nMsgType;					//·ÇÐÐÇéÏûÏ¢ÀàÐÍ
-	char pData[1024*1024 - 8];		//·ÇÐÐÇéÏûÏ¢ÄÚÈÝ
+	int nItemSize;					//éžè¡Œæƒ…æ¶ˆæ¯å¤§å°
+	int nMsgType;					//éžè¡Œæƒ…æ¶ˆæ¯ç±»åž‹
+	char pData[1024*1024 - 8];		//éžè¡Œæƒ…æ¶ˆæ¯å†…å®¹
 };
 
-//¾­¼ÍÉÌ¶ÓÁÐ(HK)/////////////////////////////////////
+//ç»çºªå•†é˜Ÿåˆ—(HK)/////////////////////////////////////
 struct TD_BrokerQueue
 {
 	char  szWindCode[32];				//Wind Code: AG1302.SHF
-	char  szCode[32];					//Ô­Ê¼ Code
-	int   nActionDay;					//×ÔÈ»ÈÕ
-	int   nAskTime;						// ½ÐÂôÊ±¼ä£¨HHMMSSmmm£©
-	int   nBidTime;						// ½ÐÂòÊ±¼ä£¨HHMMSSmmm£©
-	int   nAskBrokers;					// ½ÐÂô¾­¼Í¸öÊý
-	int   nBidBrokers;					// ½ÐÂò¾­¼Í¸öÊý
-	short sAskBroker[40];				// ½ÐÂôÇ°40¾­¼Í
-	short sBidBroker[40];				// ½ÐÂòÇ°40¾­¼Í
-	const TDF_CODE_INFO *  pCodeInfo;    //´úÂëÐÅÏ¢£¬ TDF_Close£¬ÇåÅÌÖØÁ¬ºó£¬´ËÖ¸ÕëÎÞÐ§
+	char  szCode[32];					//åŽŸå§‹ Code
+	int   nActionDay;					//è‡ªç„¶æ—¥
+	int   nAskTime;						// å«å–æ—¶é—´ï¼ˆHHMMSSmmmï¼‰
+	int   nBidTime;						// å«ä¹°æ—¶é—´ï¼ˆHHMMSSmmmï¼‰
+	int   nAskBrokers;					// å«å–ç»çºªä¸ªæ•°
+	int   nBidBrokers;					// å«ä¹°ç»çºªä¸ªæ•°
+	short sAskBroker[40];				// å«å–å‰40ç»çºª
+	short sBidBroker[40];				// å«ä¹°å‰40ç»çºª
+	const TDF_CODE_INFO *  pCodeInfo;    //ä»£ç ä¿¡æ¯ï¼Œ TDF_Closeï¼Œæ¸…ç›˜é‡è¿žåŽï¼Œæ­¤æŒ‡é’ˆæ— æ•ˆ
 };
 
-//BBQ ÅÌ¿Ú
+//BBQ ç›˜å£
 struct TDF_BBQEX_ASKBID
 { 
-	int nTime;                  //±¨¼ÛÊ±¼ä£¬µ¥Î»ÎªÃë
-	__int64 iPrice;				//¼Û¸ñ£¬Ô­Ê¼Öµ*10000
-	__int64 iYield;				//ÊÕÒæÂÊ,Ô­Ê¼Öµ*10000
-	__int64 iDirtyPrice;		//È«¼Û,Ô­Ê¼Öµ*10000
-	__int64 iNetPrice;			//¾»¼Û,Ô­Ê¼Öµ*10000
-	__int64 iVolumeTotal;		//±¨¼Û×ÜÁ¿
-	char chQuoteId[64];         //±¨¼ÛID
-	char chPriceDesc[64];		//±¨¼ÛÃèÊö
-	char chMemo[512];			//±¨¼ÛÔ­Ê¼±¸×¢
-	char chVolumeValue[120];	//±¨¼ÛÁ¿ÃèÊö
-	char chPriceType;			//±¨¼ÛÀàÐÍ
-	__uint8 uExeciseFlag;       //ÐÐÈ¨±êÖ¾
-	__uint8 uBargainFlag;		//¿ÉÒé¼Û±êÖ¾
-	__uint8 uRelationFlag;		//´ò°üºÍOCO±êÖ¾
+	int nTime;                  //æŠ¥ä»·æ—¶é—´ï¼Œå•ä½ä¸ºç§’
+	__int64 iPrice;				//ä»·æ ¼ï¼ŒåŽŸå§‹å€¼*10000
+	__int64 iYield;				//æ”¶ç›ŠçŽ‡,åŽŸå§‹å€¼*10000
+	__int64 iDirtyPrice;		//å…¨ä»·,åŽŸå§‹å€¼*10000
+	__int64 iNetPrice;			//å‡€ä»·,åŽŸå§‹å€¼*10000
+	__int64 iVolumeTotal;		//æŠ¥ä»·æ€»é‡
+	char chQuoteId[64];         //æŠ¥ä»·ID
+	char chPriceDesc[64];		//æŠ¥ä»·æè¿°
+	char chMemo[512];			//æŠ¥ä»·åŽŸå§‹å¤‡æ³¨
+	char chVolumeValue[120];	//æŠ¥ä»·é‡æè¿°
+	char chPriceType;			//æŠ¥ä»·ç±»åž‹
+	__uint8 uExeciseFlag;       //è¡Œæƒæ ‡å¿—
+	__uint8 uBargainFlag;		//å¯è®®ä»·æ ‡å¿—
+	__uint8 uRelationFlag;		//æ‰“åŒ…å’ŒOCOæ ‡å¿—
 };
 
 struct TDF_BBQEX_INDEX
 {
-	int nTime;					//Ê±¼ä£¬µ¥Î»ÎªÃë
-	int nTimeType;				//Ê±µãÀàÐÍ£¬-1ÎÞÐ§
-	char chQuoteId[64];			//±¨¼ÛID
-	__int64 nMatch;				//Ö¸ÊýÖµ
+	int nTime;					//æ—¶é—´ï¼Œå•ä½ä¸ºç§’
+	int nTimeType;				//æ—¶ç‚¹ç±»åž‹ï¼Œ-1æ— æ•ˆ
+	char chQuoteId[64];			//æŠ¥ä»·ID
+	__int64 nMatch;				//æŒ‡æ•°å€¼
 };
 
-//BBQ ÐÐÇé¿ìÕÕ MSG_DATA_BBQSNAP
+//BBQ è¡Œæƒ…å¿«ç…§ MSG_DATA_BBQSNAP
 struct TDF_BBQEx_Snap
 {
 	char szWindCode[32];		//Wind Code: AG1302.SHF
-	char chName[64];			//BBQ¼ò³Æ
-	char chBench[16];			//»ù×¼ÆÚÏÞ
-	char chIssuer[32];			//·¢ÐÐÈË
-	int nType;					//ÀàÐÍ
-	int	nSourceCode;			//ÖÐ½é»ú¹¹£º¹ú¼Ê001£¬¹úÀû002£¬ÖÐ³Ï003£¬Æ½°²004£¬ÐÅÌÆ005£¬ÉÏÌï006
-	int nDate;                  //½»Ò×ÈÕÆÚ£¬ÄêÔÂÈÕ
-	int nTime;                  //TD½ÓÊÕ±¨¼ÛÊý¾ÝµÄ×îÐÂ±¾µØÊ±¼ä£¬HHMMSSsss
-	TDF_BBQEX_ASKBID stAsk;     //Âô±¨¼ÛÐÅÏ¢
-	TDF_BBQEX_ASKBID stBid;     //Âò±¨¼ÛÐÅÏ¢
+	char chName[64];			//BBQç®€ç§°
+	char chBench[16];			//åŸºå‡†æœŸé™
+	char chIssuer[32];			//å‘è¡Œäºº
+	int nType;					//ç±»åž‹
+	int	nSourceCode;			//ä¸­ä»‹æœºæž„ï¼šå›½é™…001ï¼Œå›½åˆ©002ï¼Œä¸­è¯š003ï¼Œå¹³å®‰004ï¼Œä¿¡å”005ï¼Œä¸Šç”°006
+	int nDate;                  //äº¤æ˜“æ—¥æœŸï¼Œå¹´æœˆæ—¥
+	int nTime;                  //TDæŽ¥æ”¶æŠ¥ä»·æ•°æ®çš„æœ€æ–°æœ¬åœ°æ—¶é—´ï¼ŒHHMMSSsss
+	TDF_BBQEX_ASKBID stAsk;     //å–æŠ¥ä»·ä¿¡æ¯
+	TDF_BBQEX_ASKBID stBid;     //ä¹°æŠ¥ä»·ä¿¡æ¯
 	TDF_BBQEX_INDEX  stIndex;	//Index
 };
 
-//BBQÖð±Ê³É½» MSG_DATA_BBQSTEP
+//BBQé€ç¬”æˆäº¤ MSG_DATA_BBQSTEP
 struct TDF_BBQEx_Deal
 {
 	char  szWindCode[32];			//Wind Code: AG1302.SHF
-	int nType;						//ÀàÐÍ
-	int nSourceCode;				//ÖÐ½é»ú¹¹£º¹ú¼Ê001£¬¹úÀû002£¬ÖÐ³Ï003£¬Æ½°²004£¬ÐÅÌÆ005£¬ÉÏÌï006
-	int nDate;						//½»Ò×ÈÕÆÚ£¬ÄêÔÂÈÕ
-	int nTime;						//³É½»Ê±¼ä£¬µ¥Î»ÎªÃë
-	char chDealId[64];				//³É½»ID
-	__int64 iTradePrice;			//³É½»¼Û,Ô­Ê¼Öµ*10000
-	__int64 iYieldRate;				//³É½»ÊÕÒæÂÊ,Ô­Ê¼Öµ*10000
-	__int64 iNetPrice;				//³É½»¾»¼Û,Ô­Ê¼Öµ*10000
-	__int64 iDirtyPrice;			//³É½»È«¼Û,Ô­Ê¼Öµ*10000
-	__int64 iVolume;				//³É½»Á¿	
-	char chSettlSpeed[56];			//ÇåËãËÙ¶È
-	char chPriceType;				//³É½»¼ÛÀàÐÍ  1£º¾»¼Û£»2£ºÈ«¼Û£»3£ºÊÕÒæÂÊ
-	__uint8 uExerciseFlag;			//ÐÐÈ¨±êÖ¾  Èô´æÔÚ¡°ÐÐÈ¨¡±×ÖÑùÔò¸³ÖµÎª0   Èô´æÔÚ¡°µ½ÆÚ¡±×ÖÑùÔò¸³ÖµÎª1
-	__uint8 uStatus;                //³É½»ÀàÐÍ 1:done  2:gvn  3:tkn  4:Ä¬ÈÏ  6:ref³·Ïú
-	__uint8 uDelFlag;				//É¾³ý±êÊ¶  0:Õý³£  1:É¾³ý    
+	int nType;						//ç±»åž‹
+	int nSourceCode;				//ä¸­ä»‹æœºæž„ï¼šå›½é™…001ï¼Œå›½åˆ©002ï¼Œä¸­è¯š003ï¼Œå¹³å®‰004ï¼Œä¿¡å”005ï¼Œä¸Šç”°006
+	int nDate;						//äº¤æ˜“æ—¥æœŸï¼Œå¹´æœˆæ—¥
+	int nTime;						//æˆäº¤æ—¶é—´ï¼Œå•ä½ä¸ºç§’
+	char chDealId[64];				//æˆäº¤ID
+	__int64 iTradePrice;			//æˆäº¤ä»·,åŽŸå§‹å€¼*10000
+	__int64 iYieldRate;				//æˆäº¤æ”¶ç›ŠçŽ‡,åŽŸå§‹å€¼*10000
+	__int64 iNetPrice;				//æˆäº¤å‡€ä»·,åŽŸå§‹å€¼*10000
+	__int64 iDirtyPrice;			//æˆäº¤å…¨ä»·,åŽŸå§‹å€¼*10000
+	__int64 iVolume;				//æˆäº¤é‡	
+	char chSettlSpeed[56];			//æ¸…ç®—é€Ÿåº¦
+	char chPriceType;				//æˆäº¤ä»·ç±»åž‹  1ï¼šå‡€ä»·ï¼›2ï¼šå…¨ä»·ï¼›3ï¼šæ”¶ç›ŠçŽ‡
+	__uint8 uExerciseFlag;			//è¡Œæƒæ ‡å¿—  è‹¥å­˜åœ¨â€œè¡Œæƒâ€å­—æ ·åˆ™èµ‹å€¼ä¸º0   è‹¥å­˜åœ¨â€œåˆ°æœŸâ€å­—æ ·åˆ™èµ‹å€¼ä¸º1
+	__uint8 uStatus;                //æˆäº¤ç±»åž‹ 1:done  2:gvn  3:tkn  4:é»˜è®¤  6:refæ’¤é”€
+	__uint8 uDelFlag;				//åˆ é™¤æ ‡è¯†  0:æ­£å¸¸  1:åˆ é™¤    
 };
 
 #pragma pack(pop)

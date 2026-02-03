@@ -495,7 +495,6 @@ struct Options {
   uint32_t heartbeat_ms = 500;
   uint32_t print_limit = 20;    // print first N received snapshots (0=disable)
   bool unlink_on_exit = false;
-  bool mock_mode = false;       // 模拟行情模式：不连接 TDF，生成假数据用于测试 SHM
   uint32_t mock_interval_ms = 1000;  // 模拟行情间隔（毫秒）
   bool replay_mode = false;     // 历史回放模式：nTime=0xFFFFFFFF，用于测试服务器回放历史行情
 };
@@ -666,8 +665,6 @@ static bool ParseArgs(int argc, char** argv, Options* opt) {
       opt->print_limit = static_cast<uint32_t>(std::strtoul(v, nullptr, 10));
     } else if (a == "--unlink-on-exit") {
       opt->unlink_on_exit = true;
-    } else if (a == "--mock") {
-      opt->mock_mode = true;
     } else if (a == "--mock-interval") {
       const char* v = need("--mock-interval");
       if (!v) return false;
@@ -764,10 +761,10 @@ public:
     TDF_OPEN_SETTING_EXT settings;
     std::memset(&settings, 0, sizeof(settings));
 
-    std::strncpy(settings.siServer[0].szIp, opt_.host.c_str(), sizeof(settings.siServer[0].szIp) - 1);
+    strncpy_s(settings.siServer[0].szIp, opt_.host.c_str(), sizeof(settings.siServer[0].szIp) - 1);
     std::snprintf(settings.siServer[0].szPort, sizeof(settings.siServer[0].szPort), "%d", opt_.port);
-    std::strncpy(settings.siServer[0].szUser, opt_.user.c_str(), sizeof(settings.siServer[0].szUser) - 1);
-    std::strncpy(settings.siServer[0].szPwd, opt_.password.c_str(), sizeof(settings.siServer[0].szPwd) - 1);
+    strncpy_s(settings.siServer[0].szUser, opt_.user.c_str(), sizeof(settings.siServer[0].szUser) - 1);
+    strncpy_s(settings.siServer[0].szPwd, opt_.password.c_str(), sizeof(settings.siServer[0].szPwd) - 1);
     settings.nServerNum = 1;
 
     settings.pfnMsgHandler = &MdGateApp::OnDataReceived;
@@ -951,7 +948,7 @@ private:
       }
 
       std::memset(payload.wind_code, 0, sizeof(payload.wind_code));
-      std::strncpy(payload.wind_code, wind16, sizeof(payload.wind_code) - 1);
+      strncpy_s(payload.wind_code, wind16, sizeof(payload.wind_code) - 1);
       std::memset(payload.prefix, 0, sizeof(payload.prefix));
       std::memcpy(payload.prefix, m[i].chPrefix,
                   (std::min)(sizeof(payload.prefix), sizeof(m[i].chPrefix)));

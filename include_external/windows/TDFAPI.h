@@ -1,4 +1,4 @@
-#ifndef __TDF_API_H__
+ï»¿#ifndef __TDF_API_H__
 #define __TDF_API_H__
 
 #include "TDFAPIStruct.h"
@@ -19,83 +19,83 @@ extern "C" {
 
 enum TDF_ERR
 {
-    TDF_ERR_UNKOWN=-200,                // Î´Öª´íÎó
+    TDF_ERR_UNKOWN=-200,                // Î´Öªï¿½ï¿½ï¿½ï¿½
 
-    TDF_ERR_INITIALIZE_FAILURE = -100,  // ³õÊ¼»¯socket»·¾³Ê§°Ü
-    TDF_ERR_NETWORK_ERROR,              // ÍøÂçÁ¬½Ó³öÏÖÎÊÌâ
-    TDF_ERR_INVALID_PARAMS,             // ÊäÈë²ÎÊýÎÞÐ§
-    TDF_ERR_VERIFY_FAILURE,             // µÇÂ½ÑéÖ¤Ê§°Ü£ºÔ­ÒòÎªÓÃ»§Ãû»òÕßÃÜÂë´íÎó£»³¬³öµÇÂ½ÊýÁ¿
-    TDF_ERR_NO_AUTHORIZED_MARKET,       // ËùÓÐÇëÇóµÄÊÐ³¡¶¼Ã»ÓÐÊÚÈ¨
-    TDF_ERR_NO_CODE_TABLE,              // ËùÓÐÇëÇóµÄÊÐ³¡¸ÃÌì¶¼Ã»ÓÐ´úÂë±í
+    TDF_ERR_INITIALIZE_FAILURE = -100,  // ï¿½ï¿½Ê¼ï¿½ï¿½socketï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
+    TDF_ERR_NETWORK_ERROR,              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    TDF_ERR_INVALID_PARAMS,             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+    TDF_ERR_VERIFY_FAILURE,             // ï¿½ï¿½Â½ï¿½ï¿½Ö¤Ê§ï¿½Ü£ï¿½Ô­ï¿½ï¿½Îªï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó£»³ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½
+    TDF_ERR_NO_AUTHORIZED_MARKET,       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È¨
+    TDF_ERR_NO_CODE_TABLE,              // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ì¶¼Ã»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½
     
-    TDF_ERR_SUCCESS = 0,                // ³É¹¦
+    TDF_ERR_SUCCESS = 0,                // ï¿½É¹ï¿½
 };
 
 
-//ÉèÖÃTDF»·¾³±äÁ¿Öµ,ÔÚµ÷ÓÃTDF_OpenÖ®Ç°ÉèÖÃ
-//·µ»ØÖµ£ºTDF_ERR_INVALID_PARAMS±íÊ¾ÎÞÐ§µÄnEnv£¬TDF_ERR_SUCCESS±íÊ¾³É¹¦
+//ï¿½ï¿½ï¿½ï¿½TDFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ,ï¿½Úµï¿½ï¿½ï¿½TDF_OpenÖ®Ç°ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½TDF_ERR_INVALID_PARAMSï¿½ï¿½Ê¾ï¿½ï¿½Ð§ï¿½ï¿½nEnvï¿½ï¿½TDF_ERR_SUCCESSï¿½ï¿½Ê¾ï¿½É¹ï¿½
 TDFAPI int TDF_SetEnv(TDF_ENVIRON_SETTING nEnv, unsigned int nValue);
 
-//ÉèÖÃÈÕÖ¾ÎÄ¼þÂ·¾¶
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½Ä¼ï¿½Â·ï¿½ï¿½
 TDFAPI int TDF_SetLogPath(const char* path);
 
 
-//Í¬²½º¯Êý£¬´ò¿ªµ½TDFServerµÄÁ¬½Ó£¬Èç¹û³É¹¦£¬Ôò·µ»Ø¾ä±ú£¬·ñÔò·µ»ØNULL£¬ÔÚTDF_OpenÆÚ¼ä·¢ÉúÁËÍøÂç¶Ï¿ª£¬½«²»»á×Ô¶¯ÖØÁ¬
-//ÔÚµ÷ÓÃÆÚ¼ä£¬ÏµÍ³Í¨Öªº¯Êý½«ÊÕµ½MSG_SYS_CONNECT_RESULT£¬MSG_SYS_LOGIN_RESULT£¬MSG_SYS_CODETABLE_RESULTÏûÏ¢
-//Èç¹ûÍøÂç¶Ï¿ª£¬Ôò»áÊÕµ½MSG_SYS_DISCONNECT_NETWORK£¬pErrÖÐ´æ·Å´íÎó´úÂë
+//Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¿ªµï¿½TDFServerï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ò·µ»Ø¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½NULLï¿½ï¿½ï¿½ï¿½TDF_Openï¿½Ú¼ä·¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½Úµï¿½ï¿½ï¿½ï¿½Ú¼ä£¬ÏµÍ³Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½MSG_SYS_CONNECT_RESULTï¿½ï¿½MSG_SYS_LOGIN_RESULTï¿½ï¿½MSG_SYS_CODETABLE_RESULTï¿½ï¿½Ï¢
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½MSG_SYS_DISCONNECT_NETWORKï¿½ï¿½pErrï¿½Ð´ï¿½Å´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 TDFAPI THANDLE TDF_Open(TDF_OPEN_SETTING* pSettings, TDF_ERR* pErr);
-//¿ÉÒÔÅäÖÃ¶à×é·þÎñÆ÷£¬È¡¶à×é·þÎñÆ÷ÖÐ×î¿ìµÄÐÐÇéÍÆËÍ
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 TDFAPI THANDLE TDF_OpenExt(TDF_OPEN_SETTING_EXT* pSettings,TDF_ERR* pErr);
-//Í¨¹ý´úÀí´ò¿ªÁ¬½Ó£¬»Øµ÷ÏûÏ¢ºÍ´íÎó´úÂëºÍTDF_OpenÒ»Ñù
+//Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TDF_OpenÒ»ï¿½ï¿½
 TDFAPI THANDLE TDF_OpenProxy(TDF_OPEN_SETTING* pOpenSettings, TDF_PROXY_SETTING* pProxySettings, TDF_ERR* pErr);
 TDFAPI THANDLE TDF_OpenProxyExt(TDF_OPEN_SETTING_EXT* pOpenSettings, TDF_PROXY_SETTING* pProxySettings, TDF_ERR* pErr);
 
-//»ñÈ¡Ö¸¶¨ÊÐ³¡µÄ´úÂë±í£¬ÔÚÒÑ¾­ÊÕµ½MSG_SYS_CODETABLE_RESULT ÏûÏ¢Ö®ºó£¬¿ÉÒÔ»ñµÃ´úÂë±í
-//szMarket¸ñÊ½Îª£ºmarket-level-source(SHF-1-0)
-//»ñÈ¡µ½µÄ´úÂë±í£¬ÐèÒªµ÷ÓÃTDF_FreeArrÀ´ÊÍ·ÅÄÚ´æ
+//ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½Ð³ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½Õµï¿½MSG_SYS_CODETABLE_RESULT ï¿½ï¿½Ï¢Ö®ï¿½ó£¬¿ï¿½ï¿½Ô»ï¿½Ã´ï¿½ï¿½ï¿½ï¿½
+//szMarketï¿½ï¿½Ê½Îªï¿½ï¿½market-level-source(SHF-1-0)
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½TDF_FreeArrï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetCodeTable(THANDLE hTdf, const char* szMarket, TDF_CODE** pCode, unsigned int* pItems);
 
-// ´ÓÍòµÃ´úÂëÀ´»ñÈ¡ÏêÏ¸µÄÆÚÈ¨´úÂëÐÅÏ¢
-// pCodeInfoÖ¸ÕëÓÉÓÃ»§Ìá¹©£¬
-// Èç¹û³É¹¦»ñÈ¡£¬Ôò·µ»ØTDF_ERR_SUCCESS£¬·ñÔò·µ»Ø TDF_ERR_NO_CODE_TABLE »ò TDF_ERR_INVALID_PARAMS
-// szCode ¸ñÊ½ÎªÔ­Ê¼code + . + ÊÐ³¡(Èçag.SHF)
+// ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+// pCodeInfoÖ¸ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½á¹©ï¿½ï¿½
+// ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ò·µ»ï¿½TDF_ERR_SUCCESSï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ TDF_ERR_NO_CODE_TABLE ï¿½ï¿½ TDF_ERR_INVALID_PARAMS
+// szCode ï¿½ï¿½Ê½ÎªÔ­Ê¼code + . + ï¿½Ð³ï¿½(ï¿½ï¿½ag.SHF)
 TDFAPI int TDF_GetOptionCodeInfo(THANDLE hTdf, const char* szCode, TDF_OPTION_CODE* pCodeInfo, const char* szMarket);
 
-//Í¬²½º¯Êý£¬¹Ø±ÕÁ¬½Ó£¬²»ÒªÔÚ»Øµ÷º¯ÊýÀïÃæµ÷ÓÃ£¬·ñÔò»á¿¨ËÀ
+//Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Òªï¿½Ú»Øµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½á¿¨ï¿½ï¿½
 TDFAPI int TDF_Close(THANDLE hTdf);
 
 TDFAPI void TDF_FreeArr(void *pArr);
 
-//µÇÂ½ºó¶©ÔÄ; ´Ëº¯ÊýÊÇ¸öÒì²½º¯Êý£¬ÔÚTDF_Open³É¹¦Ö®ºóµ÷ÓÃ
-//¹ýÂË·¢ÉúÔÚ·þÎñ¶Ë£¬¸Ãº¯Êýµ÷ÓÃºó£¬¶©ÔÄÁÐ±íÈôÓÐ±ä»¯£¬·þÎñ¶Ë»á·¢ËÍËùÓÐ¶©ÔÄ´úÂëµÄ×îÐÂ¿ìÕÕ
-//szSubScriptions:ÐèÒª¶©ÔÄµÄ¹ÉÆ±(µ¥¸ö¹ÉÆ±¸ñÊ½ÎªÔ­Ê¼Code+.+ÊÐ³¡£¬Èç999999.SH)£¬ÒÔ¡°;¡±·Ö¸î£¬ÀýÈç"600000.SH;ag.SHF;000001.SZ"
+//ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½; ï¿½Ëºï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½TDF_Openï¿½É¹ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãºó£¬¶ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½Ð±ä»¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë»á·¢ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½
+//szSubScriptions:ï¿½ï¿½Òªï¿½ï¿½ï¿½ÄµÄ¹ï¿½Æ±(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½Ê½ÎªÔ­Ê¼Code+.+ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½999999.SH)ï¿½ï¿½ï¿½Ô¡ï¿½;ï¿½ï¿½ï¿½Ö¸î£¬ï¿½ï¿½ï¿½ï¿½"600000.SH;ag.SHF;000001.SZ"
 TDFAPI int TDF_SetSubscription(THANDLE hTdf, const char* szSubScriptions, SUBSCRIPTION_STYLE nSubStyle);
 
-//´ò¿ª»ñÈ¡²Î¿¼Êý¾ÝµÄ·þÎñ
+//ï¿½ò¿ª»ï¿½È¡ï¿½Î¿ï¿½ï¿½ï¿½ï¿½ÝµÄ·ï¿½ï¿½ï¿½
 TDFAPI THANDLE TDF_Open_RefData(TDF_OPEN_REFDATA_SETTING* pSettings, TDF_ERR* pErr);
 
-//»ñÈ¡ETFÇåµ¥,szMarketAbbr¸ñÊ½ÎªÎªSH
-//reqCode¸ñÊ½ÎªÔ­Ê¼code(999999)
+//ï¿½ï¿½È¡ETFï¿½åµ¥,szMarketAbbrï¿½ï¿½Ê½ÎªÎªSH
+//reqCodeï¿½ï¿½Ê½ÎªÔ­Ê¼code(999999)
 TDFAPI int TDF_ReqETFList(THANDLE hTdf, int reqID, const char* szMarketAbbr, const char* reqCode, int reqDate, int dataLevel, int marektSource = 0);
 
-//»ñÈ¡Á¬½Ó×´Ì¬ÐÅÏ¢
+//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ï¢
 TDFAPI int TDF_GetConStatInfo(THANDLE hTdf, int conIndex, ConStatInfo* pConsStatInfo);
 
-//ÊÍ·ÅÈ«¾ÖµÄÄÚ´æ£ºÕû¸ö³ÌÐòÍË³öÊ±£¬Èç¹ûÐèÒª²âÊÔÄÚ´æ·ÖÅä£¬¿Éµ÷ÓÃÊÍ·ÅÈ«¾ÖÄÚ´æ. µ÷ÓÃºó£¬API¿â²»¿ÉÓÃ
+//ï¿½Í·ï¿½È«ï¿½Öµï¿½ï¿½Ú´æ£ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ä£¬ï¿½Éµï¿½ï¿½ï¿½ï¿½Í·ï¿½È«ï¿½ï¿½ï¿½Ú´ï¿½. ï¿½ï¿½ï¿½Ãºï¿½APIï¿½â²»ï¿½ï¿½ï¿½ï¿½
 TDFAPI void TDF_EXIT();
-//»ñÈ¡µ±Ç°API°æ±¾ºÅ
+//ï¿½ï¿½È¡ï¿½ï¿½Ç°APIï¿½æ±¾ï¿½ï¿½
 TDFAPI const char* TDF_Version();
 
-//////////////////////////////////ÒÔÏÂÎªÖ÷¶¯»ñÈ¡ÐÐÇé½Ó¿Ú//////////////////////////////////////////
-//»ñÈ¡µ±Ç°×îÐÂÐÐÇé,szMarket¸ñÊ½Îªmarket-level-source,Ðèµ÷ÓÃTDF_FreeArr(void*)ÊÍ·ÅÄÚ´æ
+//////////////////////////////////ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½//////////////////////////////////////////
+//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,szMarketï¿½ï¿½Ê½Îªmarket-level-source,ï¿½ï¿½ï¿½ï¿½ï¿½TDF_FreeArr(void*)ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetLastMarketData(THANDLE hTdf, const char* szMarket, TDF_MARKET_DATA** pMarketData, int* nItems);
-//»ñÈ¡µ±Ç°×îÐÂÖ¸Êý,szMarket¸ñÊ½Îªmarket-level-source,Ðèµ÷ÓÃTDF_FreeArr(void*)ÊÍ·ÅÄÚ´æ
+//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½,szMarketï¿½ï¿½Ê½Îªmarket-level-source,ï¿½ï¿½ï¿½ï¿½ï¿½TDF_FreeArr(void*)ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetLastIndexData(THANDLE hTdf, const char* szMarket, TDF_INDEX_DATA** pIndexData, int* nItems);
-//»ñÈ¡µ±Ç°×îÐÂÆÚ»õ(ÆÚÈ¨),szMarket¸ñÊ½Îªmarket-level-source,Ðèµ÷ÓÃTDF_FreeArr(void*)ÊÍ·ÅÄÚ´æ
+//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½(ï¿½ï¿½È¨),szMarketï¿½ï¿½Ê½Îªmarket-level-source,ï¿½ï¿½ï¿½ï¿½ï¿½TDF_FreeArr(void*)ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetLastFutureData(THANDLE hTdf, const char* szMarket, TDF_FUTURE_DATA** pFutureData, int* nItems);
-//»ñÈ¡µ±Ç°×îÐÂ¿ìÕÕ,ÄÚºËÄ£Ê½Ê¹ÓÃ,szMarket¸ñÊ½Îªmarket-level-source,Ðèµ÷ÓÃTDF_FreeArr(void*)ÊÍ·ÅÄÚ´æ
+//ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½,ï¿½Úºï¿½Ä£Ê½Ê¹ï¿½ï¿½,szMarketï¿½ï¿½Ê½Îªmarket-level-source,ï¿½ï¿½ï¿½ï¿½ï¿½TDF_FreeArr(void*)ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetLastSnapShot(THANDLE hTdf, const char* szMarket, void** pSnapShot, unsigned int* nItems);
-//¸ù¾Ýwindcode»ñÈ¡µ±Ç°×îÐÂ¿ìÕÕ,ÄÚºËÄ£Ê½Ê¹ÓÃ,szMarket¸ñÊ½Îªmarket-level-source,Ðèµ÷ÓÃTDF_FreeArr(void*)ÊÍ·ÅÄÚ´æ
+//ï¿½ï¿½ï¿½ï¿½windcodeï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Â¿ï¿½ï¿½ï¿½,ï¿½Úºï¿½Ä£Ê½Ê¹ï¿½ï¿½,szMarketï¿½ï¿½Ê½Îªmarket-level-source,ï¿½ï¿½ï¿½ï¿½ï¿½TDF_FreeArr(void*)ï¿½Í·ï¿½ï¿½Ú´ï¿½
 TDFAPI int TDF_GetSnapShotByWindcode(THANDLE hTdf, const char* szMarket, void** pOneSnapShot, const char* szWindCode);
 
 #ifdef __cplusplus
