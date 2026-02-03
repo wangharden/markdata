@@ -1,0 +1,41 @@
+{
+    "trading": {
+        "host": "",          
+        "port": 28006,                     
+        "account": "010000227342",         
+        "password": "123123",              
+        "config_section": "A5_RS",
+        "snode": ""
+    },
+    "market": {
+        "host": "58.210.86.54",          
+        "port": 10001,                     
+        "user": "test",
+        "password": "test",
+        "type_flags": 0
+    },
+    "strategy": {
+        "csv_path": "",
+        "account_id": "010000227342",
+        "sell_to_mkt_ratio": 0.1,
+        "phase1_sell_ratio": 0.1,
+        "input_amt": 600000,
+        "hold_vol": 300,
+        "code_min": "",
+        "code_max": "",
+        "order_dir": "./build"
+    },
+    "modules": {
+        "sell": 1,
+        "base_cancel": 1,
+        "usage_example": 1
+    },
+    "modules_config": {
+        "usage_example": {
+            "csv_path": "./data/usage"
+        },
+        "base_cancel": {
+            "order_dir": "./data/base_cancel"
+        }
+    }
+}

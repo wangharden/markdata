@@ -1,0 +1,31 @@
+  cd D:\work\sell3\gate_result
+  cmake -G "Visual Studio 17 2022" -A x64 -S . -B build\win
+  cmake --build build\win --config Release
+  # 运行（工作目录建议就是 gate_result，保证 ./config.json ./data 路径一致）
+  .\build\win\Release\md_gate.exe
+
+
+
+  cd /path/to/gate_result
+  mkdir -p build && cd build
+  cmake .. -DCMAKE_BUILD_TYPE=Release
+  make -j4
+  cd ..
+  ./build/md_gate
+
+打包（rar，按 CMakeLists 运行时最小集合，排除 build/log/docs 等）
+  cd D:\work\sell3
+  $rar = "C:\Program Files\WinRAR\rar.exe"
+  $out = "gate_deploy_$(Get-Date -Format yyyyMMdd).rar"
+
+  if (Test-Path $out) {
+      Remove-Item $out -Force
+  }
+
+  & "$rar" a -r `
+      -x"gate_result\build\*" `
+      -x"gate_result\log\*" `
+      -x"gate_result\docs\*" `
+      -x"gate_result\design\*" `
+      -x"gate_result\review\*" `
+      "$out" "gate_result"
